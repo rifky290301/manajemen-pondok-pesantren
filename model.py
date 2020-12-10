@@ -24,7 +24,7 @@ class Model:
     def read(self):
         connection = DBConnect()
         query = "SELECT * from "+self.table
-        result = connection.executeSelect(query)
+        result = connection.executeRead(query)
         print(result)
 
     def update(self, value, id):
@@ -41,8 +41,8 @@ class Model:
         result = connection.executeUpdate(query)
         print(result)
 
-    def delete(self, id):
+    def delete(self, idInput):
         connection = DBConnect()
-        query = "DELETE FROM "+self.table+" WHERE id="+id
+        query = "DELETE FROM "+self.table+" WHERE id=", int(idInput)
         result = connection.executeDelete(query)
         print(result)
