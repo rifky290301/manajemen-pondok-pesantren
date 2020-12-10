@@ -1,19 +1,7 @@
-from User import User
+from Model import Model
 
 
-class Santri(User):
-    def __init__(self, inputNama, inputAlamat, inputNo_hp, inputEmail, inputPassword, inputStatus, inputNoKamar, inputAngkatan, inputInstansi):
-        super().__init__(self, inputNama, inputAlamat,
-                         inputNo_hp, inputEmail, inputPassword, inputStatus)
-        self.no_kamar = inputNoKamar
-        self.angkatan = inputAngkatan
-        self.instansi = inputinstansi
+class Post(Model):
 
-    def tampilkanData():
-        pass
-
-    def absenMengaji():
-        pass
-
-    def absenJagapos():
-        pass
+    def __init__(self):
+        super().__init__("santri", ["title", "body"])

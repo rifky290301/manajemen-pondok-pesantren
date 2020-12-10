@@ -1,78 +1,48 @@
-import mysql.connector
+from DBConnector import DBConnect
 
 
 class Model:
-    def connect():
-        global mydb
 
-        mydb = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            password="",
-            database="manajemen-pondok-pesantren"
-        )
+    def __init__(self, table, column):
+        self.table = table
+        self.column = column
 
-    def getData(tabel, id):
-        Model.connect()
-        mycursor = mydb.cursor()
+    def create(self, values):
+        connection = DBConnect()
+        query = """INSERT INTO """+self.table+" ("
+        for column in self.column:
+            query += column+","
+        query = query[:-1]
+        query += ") VALUES ("
+        for value in values:
+            query += "'"+value+"',"
+        query = query[:-1]
+        query += ")"
+        print(query)
+        result = connection.executeCreate(query)
 
-        if id == 0:
-            query = F"SELECT * FROM {tabel}"
-        else:
-            query = F"SELECT * FROM {tabel} WHERE id = {id}"
+    def read(self):
+        connection = DBConnect()
+        query = "SELECT * from "+self.table
+        result = connection.executeSelect(query)
+        print(result)
 
-        mycursor.execute(query)
-        result = mycursor.fetchall()
+    def update(self, value, id):
+        connection = DBConnect()
+        query = """UPDATE """+self.table+"SET ("
+        for column in self.column:
+            query += column+","
+        query = query[:-1]
+        query += ") VALUES ("
+        for value in values:
+            query += "'"+value+"',"
+        query = query[:-1]
+        query += ") WHERE id ="+id
+        result = connection.executeUpdate(query)
+        print(result)
 
-        return result
-
-    def createData(tabel, value):
-        Model.connect()
-        mycursor = mydb.cursor()
-
-        if tabel == "santri":
-            query = F"INSERT INTO {tabel} (nama, email, password, alamat, perguruan_tinggi, prodi, no_hp) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-        elif tabel == "pengurus":
-            query = F"INSERT INTO {tabel} (nama, email, password, alamat, no_hp, jabatan) VALUES (%s, %s, %s, %s, %s, %s)"
-        elif tabel == "ustad":
-            query = F"INSERT INTO {tabel} (nama, email, password, alamat, no_hp) VALUES (%s, %s, %s, %s, %s)"
-
-        mycursor.execute(query, value)
-        mydb.commit()
-        print("Data berhasil ditambahkan")
-
-    def deleteData(tabel, id):
-        Model.connect()
-        mycursor = mydb.cursor()
-
-        query = F"DELETE FROM {tabel} WHERE id = {id}"
-        mycursor.execute(query)
-        mydb.commit()
-
-        print("Data dari tabel {0} yang memiliki {1} telah dihapus",
-              format(tabel, str(id)))
-
-    def updateData(tabel, colom, value, id):
-        Model.connect()
-        mycursor = mydb.cursor()
-
-        query = F"UPDATE {tabel} SET {colom} = {value} WHERE id = {id}"
-        mycursor.execute(query)
-        mydb.commit()
-
-        print("Data berhasil diupdate")
-
-
-santri = Model.getData("santri", 0)
-for i in santri:
-    print(i)
-
-
-# value = ("sukirman", "sukirman@gmail.com", "123458",
-#          "sempu, banyuwangi", "Jember", "Informatika", "082140091385")
-
-# santri = Model.createData("santri", value)
-
-# santri = Model.deleteData("santri", 7)
-
-# santri = Model.updateData("santri", "email", "firmana@gmail.com", 8)
+    def delete(self, id):
+        connection = DBConnect()
+        query = "DELETE FROM "+self.table+" WHERE id="+id
+        result = connection.executeDelete(query)
+        print(result)
