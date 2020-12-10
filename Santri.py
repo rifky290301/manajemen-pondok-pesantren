@@ -1,7 +1,8 @@
 from Model import Model
 
 
-class Post(Model):
+class Santri(Model):
 
     def __init__(self):
-        super().__init__("santri", ["title", "body"])
+        super().__init__("santri", [
+            "nama", "email", "password", "alamat", "perguruan_tinggi", "prodi", "no_hp"])
