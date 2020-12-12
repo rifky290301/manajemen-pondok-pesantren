@@ -24,25 +24,23 @@ class Model:
     def read(self):
         connection = DBConnect()
         query = "SELECT * from "+self.table
-        result = connection.executeSelect(query)
+        result = connection.executeRead(query)
         print(result)
 
-    def update(self, value, id):
+    def update(self, values, idInput):
         connection = DBConnect()
-        query = """UPDATE """+self.table+"SET ("
-        for column in self.column:
-            query += column+","
+        query = """UPDATE """+self.table+" SET ("
+        for i in range(len(self.column)):
+            query += self.column[i]+"="
+            query += values[i]+", "
         query = query[:-1]
-        query += ") VALUES ("
-        for value in values:
-            query += "'"+value+"',"
-        query = query[:-1]
-        query += ") WHERE id ="+id
-        result = connection.executeUpdate(query)
-        print(result)
+        query += ") WHERE id ='%d'" % (idInput)
+        print(query)
+        # connection.executeUpdate(query)
+        # print(result)
 
-    def delete(self, id):
+    def delete(self, idInput):
         connection = DBConnect()
-        query = "DELETE FROM "+self.table+" WHERE id="+id
-        result = connection.executeDelete(query)
-        print(result)
+        query = """DELETE FROM """+self.table+" WHERE id = '%d'" % (idInput)
+        # result = connection.executeDelete(query)
+        print(query)
