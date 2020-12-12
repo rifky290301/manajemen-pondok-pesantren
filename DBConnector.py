@@ -9,7 +9,7 @@ class DBConnect:
     def executeCreate(self, query):
         try:
             self.connection = mysql.connector.connect(
-                host="sql12.freemysqlhosting.net", database="sql12380242", username="sql12380242", password="xcF3ZyFsnR")
+                host="sql12.freemysqlhosting.net", database="sql12381693", username="sql12381693", password="AKEeqxQhCZ")
             if self.connection.is_connected():
                 cursor = self.connection.cursor()
                 cursor.execute(query)
@@ -21,7 +21,7 @@ class DBConnect:
     def executeRead(self, query):
         try:
             self.connection = mysql.connector.connect(
-                host="sql12.freemysqlhosting.net", database="sql12380242", username="sql12380242", password="xcF3ZyFsnR")
+                host="sql12.freemysqlhosting.net", database="sql12381693", username="sql12381693", password="AKEeqxQhCZ")
             if self.connection.is_connected():
                 cursor = self.connection.cursor()
                 cursor.execute(query)
@@ -34,25 +34,23 @@ class DBConnect:
     def executeUpdate(self, query):
         try:
             self.connection = mysql.connector.connect(
-                host="sql12.freemysqlhosting.net", database="sql12380242", username="sql12380242", password="xcF3ZyFsnR")
+                host="sql12.freemysqlhosting.net", database="sql12381693", username="sql12381693", password="AKEeqxQhCZ")
             if self.connection.is_connected():
                 cursor = self.connection.cursor()
                 cursor.execute(query)
                 self.connection.commit()
                 print("success")
-                return record
         except Error as e:
             print(e)
 
     def executeDelete(self, query):
         try:
             self.connection = mysql.connector.connect(
-                host="sql12.freemysqlhosting.net", database="sql12380242", username="sql12380242", password="xcF3ZyFsnR")
+                host="sql12.freemysqlhosting.net", database="sql12381693", username="sql12381693", password="AKEeqxQhCZ")
             if self.connection.is_connected():
                 cursor = self.connection.cursor()
                 cursor.execute(query)
                 self.connection.commit()
                 print("success")
-                return record
         except Error as e:
             print(e)
