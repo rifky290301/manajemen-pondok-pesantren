@@ -18,8 +18,8 @@ class Model:
             query += "'"+value+"',"
         query = query[:-1]
         query += ")"
-        print(query)
-        result = connection.executeCreate(query)
+        # print(query)
+        result = connection.execute(query)
 
     def read(self):
         connection = DBConnect()
@@ -29,18 +29,38 @@ class Model:
 
     def update(self, values, idInput):
         connection = DBConnect()
-        query = """UPDATE """+self.table+" SET ("
+        query = """UPDATE """+self.table+" SET "
         for i in range(len(self.column)):
             query += self.column[i]+"="
-            query += values[i]+", "
+            query += "'"+values[i]+"',"
         query = query[:-1]
-        query += ") WHERE id ='%d'" % (idInput)
-        print(query)
-        # connection.executeUpdate(query)
-        # print(result)
+        query += " WHERE id ='%d'" % (idInput)
+        # print(query)
+        connection.execute(query)
 
     def delete(self, idInput):
         connection = DBConnect()
         query = """DELETE FROM """+self.table+" WHERE id = '%d'" % (idInput)
-        # result = connection.executeDelete(query)
-        print(query)
+        connection.execute(query)
+        # print(query)
+
+    def search(self, value):
+        connection = DBConnect()
+        query = "SELECT * from "+self.table+" WHERE "
+        for i in range(len(self.column)):
+            query += self.column[i]+" LIKE "+"'"+"%"+value+"%"+"'"+" OR "
+        query = query[:-3]
+        # print(query)
+        result = connection.executeRead(query)
+        print(result)
+
+    def order(self, table, col, urutan):
+        if urutan == 1:
+            x = 'ASC'
+        else:
+            x = 'DESC'
+        connection = DBConnect()
+        query = "SELECT * from "+table+" ORDER BY "+col + ' '+x
+        # print(query)
+        result = connection.executeRead(query)
+        print(result)
