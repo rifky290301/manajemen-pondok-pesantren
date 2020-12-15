@@ -31,11 +31,7 @@ def viewPengurus():
         """)
         inputAksesFitur = int(input("Masukkan angka Akses Fitur Spp: "))
         view1 = View(inputAksesFitur)
-        if inputAksesFitur == 1:
-            view1.spp()
-        elif inputAksesFitur == 2:
-            view1.spp()
-        elif inputAksesFitur == 3:
+        if 1 <= inputAksesFitur <= 3:
             view1.spp()
         else:
             print("Akses Fitur Tidak Ditemukan!!!")
@@ -48,11 +44,7 @@ def viewPengurus():
         """)
         inputAksesFitur = int(input("Masukkan angka Akses Fitur Santri: "))
         view1 = View(inputAksesFitur)
-        if inputAksesFitur == 1:
-            view1.santri()
-        elif inputAksesFitur == 2:
-            view1.santri()
-        elif inputAksesFitur == 3:
+        if 1 <= inputAksesFitur <= 3:
             view1.santri()
         else:
             print("Akses Fitur Tidak Ditemukan!!!")
@@ -65,11 +57,7 @@ def viewPengurus():
         """)
         inputAksesFitur = int(input("Masukkan angka Akses Fitur Ustadz: "))
         view1 = View(inputAksesFitur)
-        if inputAksesFitur == 1:
-            view1.ustadz()
-        elif inputAksesFitur == 2:
-            view1.ustadz()
-        elif inputAksesFitur == 3:
+        if 1 <= inputAksesFitur <= 3:
             view1.ustadz()
         else:
             print("Akses Fitur Tidak Ditemukan!!!")
@@ -82,11 +70,7 @@ def viewPengurus():
         """)
         inputAksesFitur = int(input("Masukkan angka Akses Fitur JagaPost: "))
         view1 = View(inputAksesFitur)
-        if inputAksesFitur == 1:
-            view1.jagapost()
-        elif inputAksesFitur == 2:
-            view1.jagapost()
-        elif inputAksesFitur == 3:
+        if 1 <= inputAksesFitur <= 3:
             view1.jagapost()
         else:
             print("Akses Fitur Tidak Ditemukan!!!")
