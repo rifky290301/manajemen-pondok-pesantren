@@ -10,15 +10,16 @@ class Santri(User):
             "nama", "email", "password", "alamat", "no_hp", "perguruan_tinggi", "prodi"])
 
     def getPassword():
-        # super().search
-        pass
+        connection = DBConnect()
+        query = "UPDATE "+self.table+" SET password="+passInput
+        connection.execute(query)
 
     def setPassword(self, passInput):
         connection = DBConnect()
         query = "UPDATE "+self.table+" SET password="+passInput
         connection.execute(query)
 
-    def setAlamat():
+    def aggotaKamar():
         pass
 
     # def read():
@@ -37,12 +38,12 @@ class Santri(User):
 #                 "082140091356", "ibrahimi", "si"], 2)
 
 # santri1 = Santri()
-# santri1.create(["budi", "budi@gmail.com", "jember sumbersari",
-#                 "852", "tk", "nol kecil", "082140091356"])
+# santri1.create(["ani", "ani@gmail.com", "852",
+#                 "jember sumbersari", "082140091356", "tk", "nol kecil"])
 
 # santri1 = Santri()
 # santri1.search("rifky")
 # santri1 = Santri()
 # santri1.order("santri", "nama", 2)
-santri1 = Santri()
-santri1.printCoba()
+# santri1 = Santri()
+# santri1.printCoba()

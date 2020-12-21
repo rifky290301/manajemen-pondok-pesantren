@@ -10,10 +10,11 @@ class User(Model):
 
     def login(self, email, password):
         connection = DBConnect()
-        query = "SELECT * from "+self.table+" WHERE email="+email+" and "+"password ="password
+        query = "SELECT * from "+self.table + \
+            " WHERE email= '%s' and password = '%s'" % (email, password)
         result = connection.executeRead(query)
         coki = result
-        if result == None:
+        if not result:
             return True
         else:
             return False

@@ -9,7 +9,7 @@ from JagaPos import JagaPos
 import datetime
 
 
-class View:
+class Router:
     def __init__(self, x):
         self.x = x
 
@@ -69,7 +69,7 @@ class View:
         elif self.x == 3:
             inptIdJagapost = int(input("Masukkan Id JagaPost: "))
             jagapost1.delete(inptIdJagapost)
-        elif:
+        else:
             # today = datetime.date.today()
             # tgl = today.strftime('%d-%m-%Y')
             tgl = datetime.date.today().strftime('%d-%m-%Y')

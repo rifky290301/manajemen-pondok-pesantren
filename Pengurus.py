@@ -21,9 +21,11 @@ class Pengurus(User):
     # def createSantri(self):
     #     model = Santri()
 
-    def login(self, email, password, no_hp):
+    def login(self, nama, email, password):
         connection = DBConnect()
-        query = "SELECT * FROM "+self.table+" WHERE email="+email+" and "+"password ="password+" and "+"no_hp ="no_hp
+        query = "SELECT * from "+self.table + \
+            " WHERE nama= '%s' and email= '%s' and password = '%s'" % (
+                nama, email, password)
         result = connection.executeRead(query)
         # coki = result
         if result == None:
