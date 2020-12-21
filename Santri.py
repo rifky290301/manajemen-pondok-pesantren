@@ -1,15 +1,22 @@
-from Model import Model
+from model import Model
 from User import User
 
 
-class Santri(Model):
+class Santri(User):
+    coke = []
 
     def __init__(self):
         super().__init__("santri", [
             "nama", "email", "password", "alamat", "no_hp", "perguruan_tinggi", "prodi"])
 
-    def getAlamat():
+    def getPassword():
+        # super().search
         pass
+
+    def setPassword(self, passInput):
+        connection = DBConnect()
+        query = "UPDATE "+self.table+" SET password="+passInput
+        connection.execute(query)
 
     def setAlamat():
         pass
@@ -35,6 +42,7 @@ class Santri(Model):
 
 # santri1 = Santri()
 # santri1.search("rifky")
-
 # santri1 = Santri()
 # santri1.order("santri", "nama", 2)
+santri1 = Santri()
+santri1.printCoba()

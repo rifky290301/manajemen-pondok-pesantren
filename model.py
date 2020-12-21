@@ -64,3 +64,7 @@ class Model:
         # print(query)
         result = connection.executeRead(query)
         print(result)
+
+    def printCol(self):
+        print(self.column)
+        print(self.table)

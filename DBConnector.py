@@ -6,9 +6,9 @@ class DBConnect:
     def __init__(self):
         self.connection = mysql.connector.connect(
             host="sql12.freemysqlhosting.net",
-            database="sql12381693",
-            username="sql12381693",
-            password="AKEeqxQhCZ"
+            database="sql12383245",
+            username="sql12383245",
+            password="d8aLSFwNnS"
         )
 
     def execute(self, query):

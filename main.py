@@ -1,4 +1,7 @@
 from View import View
+from Santri import Santri
+from Pengurus import Pengurus
+from Ustad import Ustad
 
 
 def main():
@@ -11,69 +14,76 @@ def main():
         """)
         inputSbgUser = int(input("Masukkan angka untuk akses sebagai user: "))
         if inputSbgUser == 1:
+            while(Pengurus().login()):
             viewPengurus()
         elif inputSbgUser == 2:
+            while(Santri().login()):
             viewSantri()
         elif inputSbgUser == 3:
+            while(Ustad().login()):
             viewUstadz()
         else:
             print("===Akses User tidak ada / Input Salah!!!===")
             print(" ")
 
 
+def template():
+    print("""
+        1. Tampilkan Data
+        2. Updata Data
+        3. Hapus Data
+        4. Tambah Data
+    """)
+    inputAksesFitur = int(input("Masukkan angka Akses Fitur: "))
+    return inputAksesFitur
+
+
 def viewPengurus():
 
     def dataSpp():
-        print("""====AKSES FITUR SPP====
-        1. Tampilkan Data Spp
-        2. Updata Data Spp
-        3. Hapus Data Spp
-        """)
-        inputAksesFitur = int(input("Masukkan angka Akses Fitur Spp: "))
-        view1 = View(inputAksesFitur)
-        if 1 <= inputAksesFitur <= 3:
+        print("""====AKSES FITUR SPP====""")
+        fitur = template()
+        # inputAksesFitur = int(input("Masukkan angka Akses Fitur Spp: "))
+        view1 = View(fitur)
+        if 1 <= fitur <= 4:
             view1.spp()
         else:
             print("Akses Fitur Tidak Ditemukan!!!")
 
     def dataSantri():
-        print("""====AKSES FITUR SANTRI====
-        1. Tampilkan Data Santri
-        2. Updata Data Santri
-        3. Hapus Data Santri
-        """)
-        inputAksesFitur = int(input("Masukkan angka Akses Fitur Santri: "))
-        view1 = View(inputAksesFitur)
-        if 1 <= inputAksesFitur <= 3:
+        print("====AKSES FITUR SANTRI====")
+        # 1. Tampilkan Data Santri
+        # 2. Updata Data Santri
+        # 3. Hapus Data Santri
+        # """)
+        fitur = template()
+        # inputAksesFitur = int(input("Masukkan angka Akses Fitur Santri: "))
+        view1 = View(fitur)
+        if 1 <= fitur <= 4:
             view1.santri()
         else:
             print("Akses Fitur Tidak Ditemukan!!!")
 
     def dataUstadz():
-        print("""====AKSES FITUR USTADZ====
-        1. Tampilkan Data Ustadz
-        2. Updata Data Ustadz
-        3. Hapus Data Ustadz
-        """)
-        inputAksesFitur = int(input("Masukkan angka Akses Fitur Ustadz: "))
-        view1 = View(inputAksesFitur)
-        if 1 <= inputAksesFitur <= 3:
+        print("====AKSES FITUR USTADZ====")
+        fitur = int(input("Masukkan angka Akses Fitur Ustadz: "))
+        view1 = View(fitur)
+        if 1 <= fitur <= 4:
             view1.ustadz()
         else:
             print("Akses Fitur Tidak Ditemukan!!!")
 
     def dataJagapost():
-        print("""====AKSES FITUR JAGAPOST====
-        1. Tampilkan Data JagaPost
-        2. Updata Data JagaPost
-        3. Hapus Data JagaPost
-        """)
-        inputAksesFitur = int(input("Masukkan angka Akses Fitur JagaPost: "))
-        view1 = View(inputAksesFitur)
-        if 1 <= inputAksesFitur <= 3:
+        print("====AKSES FITUR JAGAPOST====")
+        fitur = int(input("Masukkan angka Akses Fitur Jaga Pos: "))
+        view1 = View(fitur)
+        if 1 <= fitur <= 3:
             view1.jagapost()
         else:
             print("Akses Fitur Tidak Ditemukan!!!")
+
+    def dataTransaksi():
+        pass
 
     print(""" ====AKSES DATA====
     1. Akses Data SPP
@@ -82,14 +92,8 @@ def viewPengurus():
     4. Akses Data JagaPost
     """)
     inputAkses = int(input("Masukkan Angka Akses Data Pilihan: "))
-    if inputAkses == 1:
+    if 1 <= inputAkses <= 4:
         dataSpp()
-    elif inputAkses == 2:
-        dataSantri()
-    elif inputAkses == 3:
-        dataUstadz()
-    elif inputAkses == 4:
-        dataJagapost()
     else:
         print("Akses Data Tidak Ditemukan!!!")
         exit()

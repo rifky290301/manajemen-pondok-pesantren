@@ -6,6 +6,7 @@ from Kamar import Kamar
 from Kitab import Kitab
 from Pengumuman import Pengumuman
 from JagaPos import JagaPos
+import datetime
 
 
 class View:
@@ -31,6 +32,16 @@ class View:
         elif self.x == 3:
             inptIdSantri = int(input("Masukkan Id Santri: "))
             santri1.delete(inptIdSantri)
+        else:
+            nama = input("Nama:")
+            email = input("Email")
+            password = input("Password:")
+            alamat = input("Alamat:")
+            no_hp = input("Nomer HP:")
+            perguruan = input("Perguruan TInggi:")
+            prodi = input("Prodi")
+            santri1.create(
+                [nama, email, password, alamat, no_hp, perguruan, prodi])
 
     def ustadz(self):
         ustadz1 = Ustad()
@@ -41,6 +52,13 @@ class View:
         elif self.x == 3:
             inptIdUstadz = int(input("Masukkan Id Ustadz: "))
             ustadz1.delete(inptIdUstadz)
+        else:
+            nama = input("Nama:")
+            email = input("Email")
+            password = input("Password:")
+            alamat = input("Alamat:")
+            no_hp = input("Nomer HP:")
+            ustadz1.create([nama, email, password, alamat, no_hp])
 
     def jagapost(self):
         jagapost1 = JagaPos()
@@ -51,6 +69,12 @@ class View:
         elif self.x == 3:
             inptIdJagapost = int(input("Masukkan Id JagaPost: "))
             jagapost1.delete(inptIdJagapost)
+        elif:
+            # today = datetime.date.today()
+            # tgl = today.strftime('%d-%m-%Y')
+            tgl = datetime.date.today().strftime('%d-%m-%Y')
+            kamar = input("ID kamar:")
+            jagapost1.create([tgl, kamar])
 
     # def pengurus(self):
     #     pengurus1 = Pengurus()
