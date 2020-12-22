@@ -1,4 +1,4 @@
-from View import View
+from Router import Router
 from Santri import Santri
 from Pengurus import Pengurus
 from Ustad import Ustad
@@ -9,18 +9,21 @@ def main():
         print("""
     Daftar Pilihan User Pondok.In
     1. Pengurus
-    2. Ustadz
-    3. Santri
+    2. Santri
+    3. Ustadz
         """)
         inputSbgUser = int(input("Masukkan angka untuk akses sebagai user: "))
         if inputSbgUser == 1:
-            while(Pengurus().login()):
+            while(Pengurus().login(input("nama"), input("email:"), input("password:"))):
+                print("mungkin ada yang salah")
             viewPengurus()
         elif inputSbgUser == 2:
-            while(Santri().login()):
+            while(Santri().login(input("email:"), input("password:"))):
+                print("mungkin ada yang salah")
             viewSantri()
         elif inputSbgUser == 3:
-            while(Ustad().login()):
+            while(Santri().login(input("email:"), input("password:"))):
+                print("mungkin ada yang salah")
             viewUstadz()
         else:
             print("===Akses User tidak ada / Input Salah!!!===")
@@ -73,7 +76,7 @@ def viewPengurus():
         else:
             print("Akses Fitur Tidak Ditemukan!!!")
 
-    def dataJagapost():
+    def dataJagaPos():
         print("====AKSES FITUR JAGAPOST====")
         fitur = template()
         view1 = View(fitur)
@@ -89,7 +92,7 @@ def viewPengurus():
     1. Akses Data SPP
     2. Askes Data Santri
     3. Akses Data Ustadz
-    4. Akses Data JagaPost
+    4. Akses Data Jaga Pos
     """)
     inputAkses = int(input("Masukkan Angka Akses Data Pilihan: "))
     if 1 <= inputAkses <= 4:
@@ -98,39 +101,16 @@ def viewPengurus():
         print("Akses Data Tidak Ditemukan!!!")
         exit()
 
-    # inputFitur = int(
-    #     input("Masukkan angka untuk menggunakna fitur yang ada: "))
-    # view1 = View(inputFitur)
-    # if inputFitur == 1:
-    #     view1.pengurus()
-    # elif inputFitur == 2:
-    #     view1.pengurus()
-    # elif inputFitur == 3:
-    #     view1.pengurus()
-    # elif inputFitur == 4:
-    #     view1.pengurus()
-    # elif inputFitur == 5:
-    #     # Tampilkan Data Jaga Post
-    #     pass
-    # elif inputFitur == 6:
-    #     # Tampilkan Data Jaga Post
-    #     pass
-    # elif inputFitur == 7:
-    #     # Tampilkan Data Jaga Post
-    #     pass
-    # else:
-    #     pass
-
 
 def viewSantri():
     while(True):
         print("""
         1. Bayar SPP
-        # 2. Mengaji
-        # 3. Menyapu
-        # 4. Menjaga Post
-        # 5. Roa'an
-        # 6. bayarSPP
+        2. Absen Jaga Pos
+        3. Absen Ngaji
+        4. Lihat data diri
+        5. Ganti Password
+        6. Lihat jadwal mengaji
         """)
         inputFitur = int(input("Masukkan Angka Akses Data Pilihan: "))
         router = Router(inputFitur)
@@ -143,35 +123,19 @@ def viewSantri():
 
 def viewUstadz():
     print("""
-    1. Honor
-    2. Mengajar
-    3. Lihat Jadwal
-    4. Khotbah
+    1. Absen mengajar
+    2. Absen khotbah
+    3. Lihat Jadwal Sendiri
+    4. Lihat Jadwal Ustad lain
     """)
     inputFitur = int(
         input("Masukkan angka untuk menggunakna fitur yang ada: "))
-    if inputFitur == 1:
-        # Tampilkan Data SPP
-        pass
-    elif inputFitur == 2:
-        # Tampilkan Data Jaga Post
-        pass
-    elif inputFitur == 3:
-        # Tampilkan Data Jaga Post
-        pass
-    elif inputFitur == 4:
-        # Tampilkan Data Jaga Post
-        pass
+      router = Router(inputFitur)
+       if 1 <= inputFitur <= 6:
+            router.viewSantri()
+        else:
+            print("Akses Data Tidak Ditemukan!!!")
+            exit()
 
-    # print("Program Pondok")
-    #  print("""
-    #     1. lihat santri
-    #     2. lihat pengurus
-    #     """)
-    #   inputan = int(input("Masukan Pilihan : "))
-    #    if inputan == 1 or inputan == 2:
-    #         view1.pengurus(inputan)
-    #         break
-    #     else:
-    #         break
+
 main()

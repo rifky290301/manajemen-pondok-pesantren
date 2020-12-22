@@ -6,16 +6,13 @@ from Kamar import Kamar
 from Kitab import Kitab
 from Pengumuman import Pengumuman
 from JagaPos import JagaPos
+from AbsenNgaji import AbsenNgaji
 import datetime
 
 
-<<<<<<< HEAD:Router.py
 class Router:
-    tgl = datetime.date.today().strftime('%d-%m-%Y')
+    tgl = datetime.date.today().strftime('%Y-%m-%d')
 
-=======
-class View:
->>>>>>> parent of 043e054... mbenakne login:View.py
     def __init__(self, x):
         self.x = x
 
@@ -75,7 +72,7 @@ class View:
         elif self.x == 3:
             inptIdJagapost = int(input("Masukkan Id JagaPost: "))
             jagapost1.delete(inptIdJagapost)
-        elif:
+        else:
             # today = datetime.date.today()
             # tgl = today.strftime('%d-%m-%Y')
             # tgl = datetime.date.today().strftime('%d-%m-%Y')
@@ -96,24 +93,24 @@ class View:
             Pengumuman.create([isi, idPengurus])
 
     def viewSantri(self):
-        santri1 = Santri
+        santri1 = Santri()
+        jaga = JagaPos()
+        absen = AbsenNgaji()
+        kitab = Kitab()
+        ustad = Ustad()
         if self.x == 1:
-            santri1.coba()
-            # Santri.bayarSPP(Router.tgl, input("nominal"), "tes")
-    # def pengurus(self):
-    #     pengurus1 = Pengurus()
-    #     santri1 = Santri()
-    #     jagapost1 = JagaPos()
-    #     ustad1 = Ustad()
-    #     if self.x == 1:
-    #         santri1.read()
-    #         print("sukses santri")
-    #     elif self.x == 2:
-    #         jagapost1.read()
-    #         print("sukses jagapost")
-    #     elif self.x == 3:
-    #         pengurus1.read()
-    #         print("sukseks pengurus")
-    #     elif self.x == 4:
-    #         ustad1.read()
-    #         print("sukses ustadz")
+            santri1.bayarSPP(Router.tgl, input("nominal"), input('email'))
+        elif self.x == 2:
+            jaga.create([Router.tgl, jaga.getID(
+                input("masukkan email: "))])
+        elif self.x == 3:
+            idUstad = santri1.getID(input("masukkan email: "))
+            idKitab = kitab.getID(input("masukkan judul kitab:"))
+            absen.create([Router.tgl, idUstad, idKitab])
+
+    def viewUstadz(self):
+        pass
+
+# santri1.bayarSPP(Router.tgl, input("nominal: "), input('email: '))
+# jaga = JagaPos()
+# jaga.create([Router.tgl, '1'])
