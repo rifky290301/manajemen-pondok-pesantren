@@ -1,4 +1,4 @@
-from Router import Router
+from View import View
 from Santri import Santri
 from Pengurus import Pengurus
 from Ustad import Ustad
@@ -9,21 +9,18 @@ def main():
         print("""
     Daftar Pilihan User Pondok.In
     1. Pengurus
-    2. Santri
-    3. Ustadz
+    2. Ustadz
+    3. Santri
         """)
         inputSbgUser = int(input("Masukkan angka untuk akses sebagai user: "))
         if inputSbgUser == 1:
-            while(Pengurus().login(input("nama"), input("email:"), input("password:"))):
-                print("mungkin ada yang salah")
+            while(Pengurus().login()):
             viewPengurus()
         elif inputSbgUser == 2:
-            while(Santri().login(input("email:"), input("password:"))):
-                print("mungkin ada yang salah")
+            while(Santri().login()):
             viewSantri()
         elif inputSbgUser == 3:
-            while(Ustad().login(input("email:"), input("password:"))):
-                print("mungkin ada yang salah")
+            while(Ustad().login()):
             viewUstadz()
         else:
             print("===Akses User tidak ada / Input Salah!!!===")

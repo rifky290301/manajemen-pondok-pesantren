@@ -17,6 +17,7 @@ class DBConnect:
                 cursor = self.connection.cursor()
                 cursor.execute(query)
                 self.connection.commit()
+                print("success")
         except Error as e:
             print(e)
 
@@ -26,6 +27,7 @@ class DBConnect:
                 cursor = self.connection.cursor()
                 cursor.execute(query)
                 record = cursor.fetchall()
+                print("success")
                 return record
         except Error as e:
             print(e)

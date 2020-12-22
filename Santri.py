@@ -9,20 +9,31 @@ class Santri(User):
         super().__init__("santri", [
             "nama", "email", "password", "alamat", "no_hp", "perguruan_tinggi", "prodi"])
 
+<<<<<<< HEAD
     def getPassword(self):
         connection = DBConnect()
         query = "UPDATE "+self.table+" SET password="+passInput
         connection.execute(query)
+=======
+    def getPassword():
+        # super().search
+        pass
+>>>>>>> parent of 043e054... mbenakne login
 
     def setPassword(self, passInput):
         connection = DBConnect()
         query = "UPDATE "+self.table+" SET password="+passInput
         connection.execute(query)
 
+<<<<<<< HEAD
     def cariID(self, email):
         query = "SELECT * from "+self.table + " WHERE email= '%s'" % (email)
         result = connection.executeRead(query)
         return result[0]
+=======
+    def setAlamat():
+        pass
+>>>>>>> parent of 043e054... mbenakne login
 
     def coba(self):
         print("coba")
@@ -59,14 +70,19 @@ class Santri(User):
 #                 "082140091356", "ibrahimi", "si"], 2)
 
 # santri1 = Santri()
-# santri1.create(["ani", "ani@gmail.com", "852",
-#                 "jember sumbersari", "082140091356", "tk", "nol kecil"])
+# santri1.create(["budi", "budi@gmail.com", "jember sumbersari",
+#                 "852", "tk", "nol kecil", "082140091356"])
 
 # santri1 = Santri()
 # santri1.search("rifky")
 # santri1 = Santri()
 # santri1.order("santri", "nama", 2)
+<<<<<<< HEAD
 # santri1 = Santri()
 # santri1.printCoba()
 
 Santri.read()
+=======
+santri1 = Santri()
+santri1.printCoba()
+>>>>>>> parent of 043e054... mbenakne login

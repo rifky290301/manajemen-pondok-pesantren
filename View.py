@@ -9,9 +9,13 @@ from JagaPos import JagaPos
 import datetime
 
 
+<<<<<<< HEAD:Router.py
 class Router:
     tgl = datetime.date.today().strftime('%d-%m-%Y')
 
+=======
+class View:
+>>>>>>> parent of 043e054... mbenakne login:View.py
     def __init__(self, x):
         self.x = x
 
@@ -71,7 +75,7 @@ class Router:
         elif self.x == 3:
             inptIdJagapost = int(input("Masukkan Id JagaPost: "))
             jagapost1.delete(inptIdJagapost)
-        else:
+        elif:
             # today = datetime.date.today()
             # tgl = today.strftime('%d-%m-%Y')
             # tgl = datetime.date.today().strftime('%d-%m-%Y')
