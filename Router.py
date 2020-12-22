@@ -10,6 +10,8 @@ import datetime
 
 
 class Router:
+    tgl = datetime.date.today().strftime('%d-%m-%Y')
+
     def __init__(self, x):
         self.x = x
 
@@ -72,10 +74,28 @@ class Router:
         else:
             # today = datetime.date.today()
             # tgl = today.strftime('%d-%m-%Y')
-            tgl = datetime.date.today().strftime('%d-%m-%Y')
+            # tgl = datetime.date.today().strftime('%d-%m-%Y')
             kamar = input("ID kamar:")
-            jagapost1.create([tgl, kamar])
+            jagapost1.create([Router.tgl, kamar])
 
+    def pengumuman(self):
+        if self.x == 1:
+            Pengumuman.read()
+        elif self.x == 2:
+            Pengumuman.update()
+        elif self.x == 3:
+            inptIdJagapost = int(input("Masukkan Id JagaPost: "))
+            Pengumuman.delete(inptIdJagapost)
+        else:
+            isi = input("isi pengumuman")
+            idPengurus = input("id pengurus")
+            Pengumuman.create([isi, idPengurus])
+
+    def viewSantri(self):
+        santri1 = Santri
+        if self.x == 1:
+            santri1.coba()
+            # Santri.bayarSPP(Router.tgl, input("nominal"), "tes")
     # def pengurus(self):
     #     pengurus1 = Pengurus()
     #     santri1 = Santri()

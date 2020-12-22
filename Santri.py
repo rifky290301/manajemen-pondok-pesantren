@@ -1,15 +1,15 @@
 from model import Model
 from User import User
+from DBConnector import DBConnect
 
 
 class Santri(User):
-    coke = []
 
     def __init__(self):
         super().__init__("santri", [
             "nama", "email", "password", "alamat", "no_hp", "perguruan_tinggi", "prodi"])
 
-    def getPassword():
+    def getPassword(self):
         connection = DBConnect()
         query = "UPDATE "+self.table+" SET password="+passInput
         connection.execute(query)
@@ -19,9 +19,30 @@ class Santri(User):
         query = "UPDATE "+self.table+" SET password="+passInput
         connection.execute(query)
 
-    def aggotaKamar():
-        pass
+    def cariID(self, email):
+        query = "SELECT * from "+self.table + " WHERE email= '%s'" % (email)
+        result = connection.executeRead(query)
+        return result[0]
 
+    def coba(self):
+        print("coba")
+
+    def coba2():
+        coba()
+
+    def bayarSPP(self, tglBayar, nominal):
+        # connection = DBConnect()
+        # user = User("santri", [
+        #     "nama", "email", "password", "alamat", "no_hp", "perguruan_tinggi", "prodi"])
+        # print(user.cookie)
+        self.coba()
+        # query = "INSERT INTO transaksi (tgl_pembayaran, nominal, jenis_transaksi) VALUES (%s, %d, 'spp', %i)" % (
+        #     tglBayar, nominal, self.cookie[0][0])
+        # connection.execute(query)
+        # print(query)
+
+    # def jumlahSPP():
+    #     sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
     # def read():
     #     pass
 # santri1 = Santri()
@@ -47,3 +68,5 @@ class Santri(User):
 # santri1.order("santri", "nama", 2)
 # santri1 = Santri()
 # santri1.printCoba()
+
+Santri.read()

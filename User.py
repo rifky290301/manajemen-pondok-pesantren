@@ -3,7 +3,7 @@ from DBConnector import DBConnect
 
 
 class User(Model):
-    coki = None
+    cookie = []
 
     def __init__(self, getTable, getColumn):
         super().__init__(getTable, getColumn)
@@ -13,7 +13,8 @@ class User(Model):
         query = "SELECT * from "+self.table + \
             " WHERE email= '%s' and password = '%s'" % (email, password)
         result = connection.executeRead(query)
-        coki = result
+        cookie = result
+        # print(cookie[0][0])
         if not result:
             return True
         else:

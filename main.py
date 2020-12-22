@@ -69,7 +69,7 @@ def viewPengurus():
 
     def dataUstadz():
         print("====AKSES FITUR USTADZ====")
-        fitur = int(input("Masukkan angka Akses Fitur Ustadz: "))
+        fitur = template()
         view1 = View(fitur)
         if 1 <= fitur <= 4:
             view1.ustadz()
@@ -78,7 +78,7 @@ def viewPengurus():
 
     def dataJagapost():
         print("====AKSES FITUR JAGAPOST====")
-        fitur = int(input("Masukkan angka Akses Fitur Jaga Pos: "))
+        fitur = template()
         view1 = View(fitur)
         if 1 <= fitur <= 3:
             view1.jagapost()
@@ -126,30 +126,22 @@ def viewPengurus():
 
 
 def viewSantri():
-    print("""
-    1. Tampilkan Data Santri
-    2. Mengaji
-    3. Menyapu
-    4. Menjaga Post
-    5. Roa'an
-    """)
-    inputFitur = int(
-        input("Masukkan angka untuk menggunakna fitur yang ada: "))
-    if inputFitur == 1:
-        # Tampilkan Data SPP
-        pass
-    elif inputFitur == 2:
-        # Tampilkan Data Jaga Post
-        pass
-    elif inputFitur == 3:
-        # Tampilkan Data Jaga Post
-        pass
-    elif inputFitur == 4:
-        # Tampilkan Data Jaga Post
-        pass
-    elif inputFitur == 5:
-        # Tampilkan Data Jaga Post
-        pass
+    while(True):
+        print("""
+        1. Bayar SPP
+        # 2. Mengaji
+        # 3. Menyapu
+        # 4. Menjaga Post
+        # 5. Roa'an
+        # 6. bayarSPP
+        """)
+        inputFitur = int(input("Masukkan Angka Akses Data Pilihan: "))
+        router = Router(inputFitur)
+        if 1 <= inputFitur <= 6:
+            router.viewSantri()
+        else:
+            print("Akses Data Tidak Ditemukan!!!")
+            exit()
 
 
 def viewUstadz():
