@@ -20,6 +20,7 @@ class Model:
         query += ")"
         # print(query)
         result = connection.execute(query)
+        print("===Berhasil DiTambakan===")
 
     def read(self):
         connection = DBConnect()
@@ -37,6 +38,7 @@ class Model:
         query += " WHERE id ='%d'" % (idInput)
         # print(query)
         connection.execute(query)
+        print("===Berhasil DiUpdate===")
 
     def delete(self, idInput):
         connection = DBConnect()

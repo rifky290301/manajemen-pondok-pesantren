@@ -5,13 +5,14 @@ from Ustad import Ustad
 
 
 def main():
-    while(True):
+    def MenuLogin():
         print("===SELAMAT DATANG DI PONDOK.In===")
         print("""
     \tLOGIN Pondok.In
     \t1. Pengurus
     \t2. Santri
     \t3. Ustadz
+    \t4. Keluar
         """)
         inputSbgUser = int(input("Masukkan angka untuk LOGIN sebagai user : "))
         if inputSbgUser == 1:
@@ -26,9 +27,14 @@ def main():
             while(Santri().login(input("\tEmail    : "), input("\tPassword : "))):
                 print("Inputan Not Found!!!")
             viewUstadz()
+        elif inputSbgUser == 4:
+            exit()
         else:
             print("===Akses User tidak ada / Input Salah!!!===")
             print(" ")
+
+    while True:
+        MenuLogin()
 
 
 def template():
@@ -37,19 +43,23 @@ def template():
         2. Updata Data
         3. Hapus Data
         4. Tambah Data
+        5. Kembali Akses Data
     """)
     inputAksesFitur = int(input("Masukkan angka Akses Fitur: "))
     return inputAksesFitur
+    if inputAksesFitur == 5:
+        viewPengurus()
 
 
 def viewPengurus():
 
-    def dataSpp():
-        print("""====AKSES FITUR SPP====""")
+    def dataTransaksi():
+        print("""====AKSES FITUR TRANSAKSI====""")
         fitur = template()
         view1 = Router(fitur)
         if 1 <= fitur <= 4:
-            view1.spp()
+            view1.transaksi()
+            dataTransaksi()
         else:
             print("Akses Fitur Tidak Ditemukan!!!")
 
@@ -59,6 +69,7 @@ def viewPengurus():
         view1 = Router(fitur)
         if 1 <= fitur <= 4:
             view1.santri()
+            dataSantri()
         else:
             print("Akses Fitur Tidak Ditemukan!!!")
 
@@ -68,33 +79,45 @@ def viewPengurus():
         view1 = Router(fitur)
         if 1 <= fitur <= 4:
             view1.ustadz()
+            dataUstadz()
         else:
-            print("Akses Fitur Tidak Ditemukan!!!")
+            print("Akses Fitur Ti dak Ditemukan!!!")
 
     def dataJagaPos():
         print("====AKSES FITUR JAGAPOST====")
         fitur = template()
         view1 = Router(fitur)
-        if 1 <= fitur <= 3:
+        if 1 <= fitur <= 4:
             view1.jagapost()
+            dataJagaPos()
         else:
             print("Akses Fitur Tidak Ditemukan!!!")
 
-    def dataTransaksi():
-        pass
+    def MenuPengurus():
+        print(""" =====AKSES DATA=====
 
-    print(""" ====AKSES DATA====
-    1. Akses Data SPP
+    1. Akses Data Transaksi
     2. Askes Data Santri
     3. Akses Data Ustadz
     4. Akses Data Jaga Pos
-    """)
-    inputAkses = int(input("Masukkan Angka Akses Data Pilihan: "))
-    if 1 <= inputAkses <= 4:
-        dataSpp()
-    else:
-        print("Akses Data Tidak Ditemukan!!!")
-        exit()
+    5. Kembali Ke Login
+        """)
+        inputAkses = int(input("Masukkan Angka Akses Data Pilihan: "))
+        if inputAkses == 1:
+            dataTransaksi()
+        elif inputAkses == 2:
+            dataSantri()
+        elif inputAkses == 3:
+            dataUstadz()
+        elif inputAkses == 4:
+            dataJagaPos()
+        elif inputAkses == 5:
+            main()
+        else:
+            print("Akses Data Tidak Ditemukan!!!")
+            MenuPengurus()
+    while True:
+        MenuPengurus()
 
 
 def viewSantri():
@@ -127,7 +150,7 @@ def viewUstadz():
         input("Masukkan angka untuk menggunakna fitur yang ada: "))
     router = Router(inputFitur)
     if 1 <= inputFitur <= 6:
-        router.viewSantri()
+        router.viewUstadz()
     else:
         print("Akses Data Tidak Ditemukan!!!")
         exit()
