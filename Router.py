@@ -7,6 +7,7 @@ from Kitab import Kitab
 from Pengumuman import Pengumuman
 from JagaPos import JagaPos
 from AbsenNgaji import AbsenNgaji
+from JadwalNgaji import JadwalNgaji
 import datetime
 
 
@@ -125,6 +126,7 @@ class Router:
         absen = AbsenNgaji()
         kitab = Kitab()
         ustad = Ustad()
+        jadwal = JadwalNgaji()
         if self.x == 1:
             tanggal = Router.tgl
             santri1.bayarSPP(tanggal, input("Nominal: "), input('Email: '))
@@ -136,6 +138,16 @@ class Router:
             idUstad = santri1.getID(input("masukkan email: "))
             idKitab = kitab.getID(input("masukkan judul kitab: "))
             absen.create([Router.tgl, idUstad, idKitab])
+        elif self.x == 4:
+            santri1.getPassword(input("masukkan email anda: "))
+        elif self.x == 5:
+            email = input("Masukkan email:")
+            password = input("Massukkan password:")
+            santri1.setPassword(email, password)
+        elif self.x == 6:
+            jadwal.read()
+        elif self.x == 7:
+            Pengumuman.read()
 
     def viewUstadz(self):
         pass
