@@ -126,13 +126,14 @@ def viewSantri():
         1. Bayar SPP
         2. Absen Jaga Pos
         3. Absen Ngaji
-        4. Lihat data diri
+        4. Lihat password
         5. Ganti Password
         6. Lihat jadwal mengaji
+        7. lihat pengumuman
         """)
         inputFitur = int(input("Masukkan Angka Akses Data Pilihan: "))
         router = Router(inputFitur)
-        if 1 <= inputFitur <= 6:
+        if 1 <= inputFitur <= 7:
             router.viewSantri()
         else:
             print("Akses Data Tidak Ditemukan!!!")
