@@ -9,19 +9,21 @@ class Santri(User):
         super().__init__("santri", [
             "nama", "email", "password", "alamat", "no_hp", "perguruan_tinggi", "prodi", "kamar_id"])
 
-    def getPassword(self, email):
+    @staticmethod
+    def getPassword(email):
         connection = DBConnect()
-        query = "SELECT password FROM " + \
-            self.table+" WHERE email='%s'" % (email)
+        query = "SELECT password FROM santri WHERE email='%s'" % (email)
         result = connection.executeRead(query)
         # print(query)
         print("Password anda: ", result[0][0])
 
-    def setPassword(self, email, passInput):
+    @staticmethod
+    def setPassword(email, passInput):
         connection = DBConnect()
-        query = "UPDATE "+self.table + \
-            " SET password= '%s' WHERE email = '%s'" % (passInput, email)
+        query = "UPDATE santri SET password= '%s' WHERE email = '%s'" % (
+            passInput, email)
         connection.execute(query)
+        print("Password berhasil di update")
 
     def getID(self, email):
         connection = DBConnect()
