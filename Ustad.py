@@ -1,8 +1,9 @@
 from model import Model
 from DBConnector import DBConnect
+from User import User
 
 
-class Ustad(Model):
+class Ustad(User):
 
     def __init__(self):
         super().__init__("ustad", [

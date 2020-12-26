@@ -24,7 +24,7 @@ def main():
                 print("Inputan Not Found!!!")
             viewSantri()
         elif inputSbgUser == 3:
-            while(Santri().login(input("\tEmail    : "), input("\tPassword : "))):
+            while(Ustad().login(input("\tEmail    : "), input("\tPassword : "))):
                 print("Inputan Not Found!!!")
             viewUstadz()
         elif inputSbgUser == 4:
@@ -143,9 +143,10 @@ def viewSantri():
 def viewUstadz():
     print("""
     1. Absen mengajar
-    2. Absen khotbah
+    2. Lihat Pengumuman
     3. Lihat Jadwal Sendiri
-    4. Lihat Jadwal Ustad lain
+    4. Lihat Jadwal Semua
+    5. Kembali ke Login
     """)
     inputFitur = int(
         input("Masukkan angka untuk menggunakna fitur yang ada: "))
