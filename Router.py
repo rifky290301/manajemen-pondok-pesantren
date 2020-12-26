@@ -127,6 +127,7 @@ class Router:
         kitab = Kitab()
         ustad = Ustad()
         jadwal = JadwalNgaji()
+        pengumuman = Pengumuman()
         if self.x == 1:
             tanggal = Router.tgl
             santri1.bayarSPP(tanggal, input("Nominal: "), input('Email: '))
@@ -145,9 +146,9 @@ class Router:
             password = input("Massukkan password:")
             santri1.setPassword(email, password)
         elif self.x == 6:
-            jadwal.read()
+            jadwal.read(["rolee"])
         elif self.x == 7:
-            Pengumuman.read()
+            pengumuman.read(["rolee"])
 
     def viewUstadz(self):
         ustadz1 = Ustad()
