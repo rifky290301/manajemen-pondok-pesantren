@@ -1,4 +1,5 @@
 from DBConnector import DBConnect
+from prettytable import PrettyTable
 
 
 class Model:
@@ -22,11 +23,25 @@ class Model:
         result = connection.execute(query)
         print("===Berhasil DiTambakan===")
 
-    def read(self):
+    def read(self, role=None):
         connection = DBConnect()
         query = "SELECT * from "+self.table
         result = connection.executeRead(query)
-        print(result)
+        p = PrettyTable()
+        x = []
+        if role == None:
+            x.append('id')
+        for column in self.column:
+            x.append(column)
+        p.field_names = x
+        for row in result:
+            listRow = list(row)
+            listRow.pop(len(x))
+            listRow.pop(len(x))
+            if role != None:
+                listRow.pop(0)
+            p.add_row(listRow)
+        print(p)
 
     def update(self, values, idInput):
         connection = DBConnect()

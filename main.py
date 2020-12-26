@@ -54,44 +54,44 @@ def template():
 def viewPengurus():
 
     def dataTransaksi():
-        print("""====AKSES FITUR TRANSAKSI====""")
+        print("""====AKSES DATA TRANSAKSI====""")
         fitur = template()
         view1 = Router(fitur)
         if 1 <= fitur <= 4:
             view1.transaksi()
             dataTransaksi()
         else:
-            print("Akses Fitur Tidak Ditemukan!!!")
+            print("Akses data Tidak Ditemukan!!!")
 
     def dataSantri():
-        print("====AKSES FITUR SANTRI====")
+        print("====AKSES DATA SANTRI====")
         fitur = template()
         view1 = Router(fitur)
         if 1 <= fitur <= 4:
             view1.santri()
             dataSantri()
         else:
-            print("Akses Fitur Tidak Ditemukan!!!")
+            print("Akses data Tidak Ditemukan!!!")
 
     def dataUstadz():
-        print("====AKSES FITUR USTADZ====")
+        print("====AKSES DATA USTADZ====")
         fitur = template()
         view1 = Router(fitur)
         if 1 <= fitur <= 4:
             view1.ustadz()
             dataUstadz()
         else:
-            print("Akses Fitur Ti dak Ditemukan!!!")
+            print("Akses data Tidak Ditemukan!!!")
 
     def dataJagaPos():
-        print("====AKSES FITUR JAGAPOST====")
+        print("====AKSES DATA JAGAPOST====")
         fitur = template()
         view1 = Router(fitur)
         if 1 <= fitur <= 4:
             view1.jagapost()
             dataJagaPos()
         else:
-            print("Akses Fitur Tidak Ditemukan!!!")
+            print("Akses data Tidak Ditemukan!!!")
 
     def MenuPengurus():
         print(""" =====AKSES DATA=====
