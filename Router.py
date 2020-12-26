@@ -138,7 +138,21 @@ class Router:
             absen.create([Router.tgl, idUstad, idKitab])
 
     def viewUstadz(self):
-        pass
+        ustadz1 = Ustad()
+        pengumuman1 = Pengumuman()
+
+        if self.x == 1:
+            pass
+        elif self.x == 2:
+            pengumuman1.read()
+        elif self.x == 3:
+            pass
+        elif self.x == 4:
+            pass
+        elif self.x == 5:
+            pass
+        else:
+            exit()
 
 
 # santri1.bayarSPP(Router.tgl, input("nominal: "), input('email: '))
