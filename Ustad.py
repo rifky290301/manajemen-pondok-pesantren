@@ -9,8 +9,15 @@ class Ustad(User):
         super().__init__("ustad", [
             "nama", "email", "password", "alamat", "no_hp"])
 
-    def getID(self, nama):
+    def getID(self, email):
         connection = DBConnect()
-        query = "SELECT * from "+self.table + " WHERE nama= '%s'" % (nama)
+        query = "SELECT * from "+self.table + " WHERE email= '%s'" % (email)
         result = connection.executeRead(query)
         return result[0][0]
+
+    # def jadwalDewe(self, email):
+    #     connection = DBConnect()
+    #     query = "SELECT * from "+self.table + " WHERE email= '%s'" % (email)
+    #     result = connection.executeRead(query)
+    #     print(result)
+    #     # print(query)

@@ -153,17 +153,16 @@ class Router:
     def viewUstadz(self):
         ustadz1 = Ustad()
         pengumuman1 = Pengumuman()
-
+        jadwalngaji1 = JadwalNgaji()
         if self.x == 1:
             pass
         elif self.x == 2:
             pengumuman1.read()
         elif self.x == 3:
-            pass
+            idustad = ustadz1.getID(input("Masukkan email: "))
+            jadwalngaji1.jadwalDewe(idustad)
         elif self.x == 4:
-            pass
-        elif self.x == 5:
-            pass
+            jadwalngaji1.read()
         else:
             exit()
 
