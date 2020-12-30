@@ -36,12 +36,14 @@ class Model:
         p.field_names = x
         for row in result:
             listRow = list(row)
-            listRow.pop(len(x))
-            listRow.pop(len(x))
+            listRow.pop(len(listRow)-1)
+            listRow.pop(len(listRow)-1)
             if role != None:
                 listRow.pop(0)
             p.add_row(listRow)
         print(p)
+        # print(len(listRow))
+        # print(x)
 
     def update(self, values, idInput):
         connection = DBConnect()
