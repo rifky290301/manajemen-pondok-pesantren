@@ -93,6 +93,56 @@ def viewPengurus():
         else:
             print("Akses data Tidak Ditemukan!!!")
 
+    def dataPengurus():
+        print("====AKSES DATA JAGAPOST====")
+        fitur = template()
+        view1 = Router(fitur)
+        if 1 <= fitur <= 4:
+            view1.jagapost()
+            dataJagaPos()
+        else:
+            print("Akses data tidak ditemukan!!!")
+
+    def dataAbsen():
+        print("====AKSES DATA ABSEN====")
+        fitur = template()
+        view1 = Router(fitur)
+        if 1 <= fitur <= 4:
+            view1.absen()
+            dataAbsen()
+        else:
+            print("Akses data tidak ditemukan!!!")
+
+    def dataKamar():
+        print("====AKSES DATA ABSEN====")
+        fitur = template()
+        view1 = Router(fitur)
+        if 1 <= fitur <= 4:
+            view1.kamar()
+            dataKamar()
+        else:
+            print("Akses data tidak ditemukan!!!")
+
+    def dataKitab():
+        print("====AKSES DATA ABSEN====")
+        fitur = template()
+        view1 = Router(fitur)
+        if 1 <= fitur <= 4:
+            view1.kitab()
+            dataKitab()
+        else:
+            print("Akses data tidak ditemukan!!!")
+
+    def dataPengumuan():
+        print("====AKSES DATA ABSEN====")
+        fitur = template()
+        view1 = Router(fitur)
+        if 1 <= fitur <= 4:
+            view1.pengumuman()
+            dataPengumuan()
+        else:
+            print("Akses data tidak ditemukan!!!")
+
     def MenuPengurus():
         print(""" =====AKSES DATA=====
 
@@ -100,7 +150,12 @@ def viewPengurus():
     2. Askes Data Santri
     3. Akses Data Ustadz
     4. Akses Data Jaga Pos
-    5. Kembali Ke Login
+    5. Akses Data Pengurus
+    6. Akses Data Absen
+    7. Akses Data Kamar
+    8. Akses Data Kitab
+    9. Akses Data Pengumuman
+    10. Kembali Ke Login
         """)
         inputAkses = int(input("Masukkan Angka Akses Data Pilihan: "))
         if inputAkses == 1:
@@ -112,6 +167,16 @@ def viewPengurus():
         elif inputAkses == 4:
             dataJagaPos()
         elif inputAkses == 5:
+            dataPengurus()
+        elif inputAkses == 6:
+            dataAbsen()
+        elif inputAkses == 7:
+            dataKamar()
+        elif inputAkses == 8:
+            dataKitab()
+        elif inputAkses == 9:
+            dataPengumuan()
+        elif inputAkses == 10:
             main()
         else:
             print("Akses Data Tidak Ditemukan!!!")

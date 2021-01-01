@@ -14,13 +14,13 @@ import datetime
 transaksi1 = Transaksi()
 pengurus1 = Pengurus()
 # santri1 = Santri("b")
-jaga = JagaPos()
-absen = AbsenNgaji()
-kitab = Kitab()
+jaga1 = JagaPos()
+absen1 = AbsenNgaji()
+kitab1 = Kitab()
 jadwalngaji1 = JadwalNgaji()
 pengumuman1 = Pengumuman()
 ustadz1 = Ustad()
-kamar = Kamar()
+kamar1 = Kamar()
 
 
 class Router:
@@ -110,19 +110,88 @@ class Router:
             ustadz1.create([nama, email, password, alamat, no_hp])
 
     def jagapost(self):
-        jagapost1 = JagaPos()
         if self.x == 1:
-            jagapost1.read()
+            jaga1.read()
         elif self.x == 2:
             idperubahan = int(input("Masukkan id JagaPost yang dirubah: "))
             kamar = input("ID kamar:")
-            jagapost1.update([Router.tgl, kamar], idperubahan)
+            jaga1.update([Router.tgl, kamar], idperubahan)
         elif self.x == 3:
             inptIdJagapost = int(input("Masukkan Id JagaPost: "))
-            jagapost1.delete(inptIdJagapost)
+            jaga1.delete(inptIdJagapost)
         else:
             kamar = input("ID kamar:")
-            jagapost1.create([Router.tgl, kamar])
+            jaga1.create([Router.tgl, kamar])
+
+    def pengurus(self):
+        if self.x == 1:
+            pengurus1.read()
+        elif self.x == 2:
+            idperubahan = int(input("Masukkan id JagaPost yang dirubah: "))
+            nama = input("Nama: ")
+            email = input("Email: ")
+            password = input("Password: ")
+            alamat = input("Alamat: ")
+            no_hp = input("Nomer HP: ")
+            jabatan = input("Jabatan")
+            pengurus1.update([nama, email, password, alamat,
+                              no_hp, jabatan], idperubahan)
+        elif self.x == 3:
+            idPengurus = int(input("Masukkan Id Pengurus: "))
+            pengurus1.delete(idPengurus)
+        else:
+            nama = input("Nama: ")
+            email = input("Email: ")
+            password = input("Password: ")
+            alamat = input("Alamat: ")
+            no_hp = input("Nomer HP: ")
+            jabatan = input("Jabatan")
+            pengurus1.create([nama, email, password, alamat, no_hp, jabatan])
+
+    def absen(self):
+        if self.x == 1:
+            absen1.read()
+        elif self.x == 2:
+            print("Tidak bisa update data")
+        elif self.x == 3:
+            idAbsensi = int(input("Masukkan Id Absensi: "))
+            absen1.delete(idAbsensi)
+        else:
+            print("Tidak bisa create data")
+
+    def kamar(self):
+        if self.x == 1:
+            kamar1.read()
+        elif self.x == 2:
+            idPerubahan = int(input("Masukkan id kamar yang akan diubah"))
+            jumlahKasur = int(input("Masukkan jumlah kasur"))
+            kamar1.update([jumlahKasur], idPerubahan)
+        elif self.x == 3:
+            idKamar = int(input("Masukkan Id Kamar: "))
+            kamar1.delete(idKamar)
+        else:
+            jumlahKasur = int(input("Masukkan jumlah kasur"))
+            kamar1.create([jumlahKasur])
+
+    def kitab(self):
+        if self.x == 1:
+            kitab1.read()
+        elif self.x == 2:
+            idPerubahan = int(input("Masukkan id kitab yang akan diubah"))
+            judul = input("Judul kitab:")
+            pengarang = input("Pengarang kitab:")
+            penulis = input("Penulis:")
+            thn = input("Tahun terbit:")
+            kitab1.update([judul, pengarang, penulis, thn], idPerubahan)
+        elif self.x == 3:
+            idKitab = int(input("Masukkan Id Kitab: "))
+            kitab1.delete(idKitab)
+        else:
+            judul = input("Judul kitab:")
+            pengarang = input("Pengarang kitab:")
+            penulis = input("Penulis:")
+            thn = input("Tahun terbit:")
+            kitab1.update([judul, pengarang, penulis, thn])
 
     def pengumuman(self):
         if self.x == 1:
@@ -138,7 +207,6 @@ class Router:
             Pengumuman.create([isi, idPengurus])
 
     def viewSantri(self):
-
         if self.x == 1:
             tanggal = Router.tgl
             inputEmail = input("Masukkan Email Anda: ")
@@ -169,7 +237,6 @@ class Router:
             pengumuman1.read(["rolee"])
 
     def viewUstadz(self):
-
         if self.x == 1:
             pass
         elif self.x == 2:
