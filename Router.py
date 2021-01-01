@@ -212,10 +212,11 @@ class Router:
             inputEmail = input("Masukkan Email Anda: ")
             santri1 = Santri(inputEmail)
             santri1.bayarSPP(input("Nominal Pembayaran: "), inputEmail)
-            # print(tanggal)
+            santri1(inputEmail)
         elif self.x == 2:
-            jaga.create([Router.tgl, jaga.getID(
-                input("Masukkan Email Anda: "))])
+            inputEmail = (input("Masukkan Email Anda: "))
+            jaga1.create([Router.tgl, jaga1.getID(inputEmail)])
+            jaga1(inputEmail)
         elif self.x == 3:
             idUstad = santri1.getID(input("masukkan email: "))
             idKitab = kitab.getID(input("masukkan judul kitab: "))
@@ -242,8 +243,8 @@ class Router:
         elif self.x == 2:
             pengumuman1.read(["ustad"])
         elif self.x == 3:
-            idustad = ustadz1.getID(input("Masukkan email: "))
-            jadwalngaji1.jadwalDewe(idustad)
+            idustadz = ustadz1.getID(input("Masukkan Email Anda: "))
+            JadwalNgaji.jadwalDewe(idustadz)
         elif self.x == 4:
             jadwalngaji1.read("ustad")
         else:

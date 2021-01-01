@@ -7,9 +7,10 @@ class JadwalNgaji(Model):
     def __init__(self):
         super().__init__("jadwal", ["hari", "waktu", "ustad_id", "kitab_id"])
 
-    def jadwalDewe(self, ustad_id):
+    @classmethod
+    def jadwalDewe(cls, ustad_id):
         connection = DBConnect()
-        query = "SELECT * from "+self.table + \
+        query = "SELECT * from " + "jadwal" + \
             " WHERE ustad_id= '%s'" % (ustad_id)
         result = connection.executeRead(query)
         print(result)

@@ -20,7 +20,6 @@ def main():
                 print("Inputan Not Found!!!")
             viewPengurus()
         elif inputSbgUser == 2:
-            # santri1 = Santri("b")
             while(Santri("b").login(input("\tEmail    : "), input("\tPassword : "))):
                 print("Inputan Not Found!!!")
             viewSantri()
