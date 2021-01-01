@@ -15,7 +15,7 @@ class Santri(User):
             self.table+" WHERE email='%s'" % (self.__email)
         result = connection.executeRead(query)
         self.__password = result[0][0]
-
+        
     # penerapan enkpasulasi privet dan getter serta setter
     def getPassword(self):
         return self.__password
