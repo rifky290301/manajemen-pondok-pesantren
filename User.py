@@ -12,15 +12,11 @@ class User(Model):
         connection = DBConnect()
         query = "SELECT * from "+self.table + \
             " WHERE email= '%s' and password = '%s'" % (email, password)
-        # print(query)
+
         result = connection.executeRead(query)
         cookie = result
-        # print(cookie[0][0])
+
         if not result:
             return True
         else:
             return False
-
-    # def printCoba(self):
-    #     print(self.column)
-    #     print(self.table)

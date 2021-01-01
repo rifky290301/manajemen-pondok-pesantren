@@ -14,10 +14,3 @@ class Ustad(User):
         query = "SELECT * from "+self.table + " WHERE email= '%s'" % (email)
         result = connection.executeRead(query)
         return result[0][0]
-
-    # def jadwalDewe(self, email):
-    #     connection = DBConnect()
-    #     query = "SELECT * from "+self.table + " WHERE email= '%s'" % (email)
-    #     result = connection.executeRead(query)
-    #     print(result)
-    #     # print(query)

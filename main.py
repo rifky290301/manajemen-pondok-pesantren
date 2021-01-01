@@ -20,7 +20,8 @@ def main():
                 print("Inputan Not Found!!!")
             viewPengurus()
         elif inputSbgUser == 2:
-            while(Santri().login(input("\tEmail    : "), input("\tPassword : "))):
+            # santri1 = Santri("b")
+            while(Santri("b").login(input("\tEmail    : "), input("\tPassword : "))):
                 print("Inputan Not Found!!!")
             viewSantri()
         elif inputSbgUser == 3:
@@ -140,21 +141,24 @@ def viewSantri():
 
 
 def viewUstadz():
-    print("""
-    1. Absen mengajar
-    2. Lihat Pengumuman
-    3. Lihat Jadwal Sendiri
-    4. Lihat Jadwal Semua
-    5. Kembali ke Login
-    """)
-    inputFitur = int(
-        input("Masukkan angka untuk menggunakna fitur yang ada: "))
-    router = Router(inputFitur)
-    if 1 <= inputFitur <= 6:
-        router.viewUstadz()
-    else:
-        print("Akses Data Tidak Ditemukan!!!")
-        exit()
+    def MenuUstadz():
+        print("""
+        1. Absen mengajar
+        2. Lihat Pengumuman
+        3. Lihat Jadwal Sendiri
+        4. Lihat Jadwal Semua
+        5. Kembali ke Login
+        """)
+        inputFitur = int(
+            input("Masukkan angka untuk menggunakna fitur yang ada: "))
+        router = Router(inputFitur)
+        if 1 <= inputFitur <= 6:
+            router.viewUstadz()
+        else:
+            print("Akses Data Tidak Ditemukan!!!")
+            exit()
+    while True:
+        MenuUstadz()
 
 
 main()
