@@ -5,17 +5,20 @@ from DBConnector import DBConnect
 
 class Santri(User):
 
-    def __init__(self, inputEmail):
+    def __init__(self, inputEmail=None):
         super().__init__("santri", [
             "nama", "email", "password", "alamat", "no_hp", "perguruan_tinggi", "prodi", "kamar_id"])
 
         # variable privet
-        self.__email = inputEmail
-        connection = DBConnect()
-        query = "SELECT password FROM " + self.table + \
-            " WHERE email='%s'" % (self.__email)
-        result = connection.executeRead(query)
-        self.__password = result[0][0]
+        if inputEmail == None:
+            pass
+        else:
+            self.__email = inputEmail
+            connection = DBConnect()
+            query = "SELECT password FROM " + self.table + \
+                " WHERE email='%s'" % (self.__email)
+            result = connection.executeRead(query)
+            self.__password = result[0][0]
 
     # penggunaan __call__
     def __call__(self, email):
