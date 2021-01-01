@@ -22,8 +22,6 @@ class Santri(User):
         print("Trimakasih Kang", email,
               "Telah melakukan Pembayaran SPP :)")
 
-    # penerapan enkpasulasi privet dan getter serta setter
-
     def getPassword(self):
         return self.__password
 

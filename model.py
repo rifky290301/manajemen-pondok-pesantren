@@ -16,10 +16,13 @@ class Model:
         query = query[:-1]
         query += ") VALUES ("
         for value in values:
-            query += "'"+value+"',"
+            if value == None:
+                query += "NULL,"
+            else:
+                query += "'"+value+"',"
         query = query[:-1]
         query += ")"
-        # print(query)
+        print(query)
         result = connection.execute(query)
         print("===Berhasil DiTambakan===")
 

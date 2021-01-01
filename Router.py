@@ -37,9 +37,9 @@ class Router:
             tgl_pembayaran = Router.tgl
             nominal = input("Masukkan Nomila: ")
             jenis_transaksi = input("Jenis Transaksi: ")
-            santri_id = input("Masukkan id Santri: ")
+            santri_id = ("null")
             pengurus_id = str(pengurus1.getID(input("masukkan email: ")))
-            ustad_id = input("Masukkan id Ustadz: ")
+            ustad_id = ("null")
             transaksi1.update([tgl_pembayaran, nominal, jenis_transaksi,
                                santri_id, pengurus_id, ustad_id], idperubahan)
         elif self.x == 3:
@@ -49,9 +49,9 @@ class Router:
             tgl_pembayaran = Router.tgl
             nominal = input("Masukkan Nomila: ")
             jenis_transaksi = input("Jenis Transaksi: ")
-            santri_id = input("Masukkan id Santri: ")
-            pengurus_id = str(pengurus1.getID(input("Masukkan Email Anda: ")))
-            ustad_id = input("Masukkan id Ustadz: ")
+            santri_id = None
+            pengurus_id = str(pengurus1.getID(input("masukkan email: ")))
+            ustad_id = None
             transaksi1.create([tgl_pembayaran, nominal, jenis_transaksi,
                                santri_id, pengurus_id, ustad_id])
 
@@ -218,9 +218,13 @@ class Router:
             jaga1.create([Router.tgl, jaga1.getID(inputEmail)])
             jaga1(inputEmail)
         elif self.x == 3:
-            idUstad = santri1.getID(input("masukkan email: "))
-            idKitab = kitab.getID(input("masukkan judul kitab: "))
-            absen.create([Router.tgl, idUstad, idKitab])
+            inputEmail = input("Masukkan Email Anda: ")
+            santri1 = Santri(inputEmail)
+            idSantri = santri1.getID()
+            idKitab = kitab1.getID(input("masukkan judul kitab: "))
+            idUstad = ustadz1.getID(input("masukkan email ustad"))
+            absen1.create([Router.tgl, str(idSantri),
+                           str(idUstad), str(idKitab)])
         elif self.x == 4:
             inputEmail = input("Masukkan Email Anda: ")
             santri1 = Santri(inputEmail)
@@ -239,7 +243,9 @@ class Router:
 
     def viewUstadz(self):
         if self.x == 1:
-            pass
+            ustad = ustadz1.getID(input("Masukkan mail :"))
+            kitab = kitab1.getID(input("Nama kitab:"))
+            absen1.absenUstad(ustad, kitab)
         elif self.x == 2:
             pengumuman1.read(["ustad"])
         elif self.x == 3:
