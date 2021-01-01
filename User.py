@@ -1,5 +1,6 @@
 from model import Model
 from DBConnector import DBConnect
+from abc import ABC, abstractmethod
 
 
 class User(Model):

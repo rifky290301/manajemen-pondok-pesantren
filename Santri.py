@@ -9,14 +9,21 @@ class Santri(User):
         super().__init__("santri", [
             "nama", "email", "password", "alamat", "no_hp", "perguruan_tinggi", "prodi", "kamar_id"])
 
+        # variable privet
         self.__email = inputEmail
         connection = DBConnect()
-        query = "SELECT password FROM " + \
-            self.table+" WHERE email='%s'" % (self.__email)
+        query = "SELECT password FROM " + self.table + \
+            " WHERE email='%s'" % (self.__email)
         result = connection.executeRead(query)
         self.__password = result[0][0]
-        
+
+    # penggunaan __call__
+    def __call__(self, email):
+        print("Trimakasih Kang", email,
+              "Telah melakukan Pembayaran SPP :)")
+
     # penerapan enkpasulasi privet dan getter serta setter
+
     def getPassword(self):
         return self.__password
 
@@ -37,7 +44,6 @@ class Santri(User):
         return hasil[0][0]
 
     def bayarSPP(self, nominal, email):
-        santri1 = Santri(email)
         connection = DBConnect()
         query = "INSERT INTO transaksi (tgl_pembayaran, nominal, jenis_transaksi, santri_id) VALUES ('now()',%s,'spp', %s)" % (
             nominal, self.getID())
