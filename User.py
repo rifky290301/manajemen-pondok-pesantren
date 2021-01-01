@@ -20,3 +20,7 @@ class User(Model):
             return True
         else:
             return False
+
+    @abstractmethod
+    def getID(self):
+        pass
