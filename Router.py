@@ -1,3 +1,4 @@
+import os
 from Santri import Santri
 from Pengurus import Pengurus
 from Ustad import Ustad
@@ -22,6 +23,8 @@ pengumuman1 = Pengumuman()
 ustadz1 = Ustad()
 kamar1 = Kamar()
 
+os.system('cls')
+
 
 class Router:
     tgl = datetime.date.today().strftime('%Y-%m-%d')
@@ -30,6 +33,7 @@ class Router:
         self.x = x
 
     def transaksi(self):
+        os.system('cls')
         if self.x == 1:
             transaksi1.read()
         elif self.x == 2:
@@ -56,6 +60,7 @@ class Router:
                                santri_id, pengurus_id, ustad_id])
 
     def santri(self):
+        os.system('cls')
         santri1 = Santri("b")
         if self.x == 1:
             santri1.read()
@@ -87,7 +92,7 @@ class Router:
                 [nama, email, password, alamat, no_hp, perguruan, prodi, kamar_id])
 
     def ustadz(self):
-
+        os.system('cls')
         if self.x == 1:
             ustadz1.read()
         elif self.x == 2:
@@ -110,6 +115,7 @@ class Router:
             ustadz1.create([nama, email, password, alamat, no_hp])
 
     def jagapost(self):
+        os.system('cls')
         if self.x == 1:
             jaga1.read()
         elif self.x == 2:
@@ -124,6 +130,7 @@ class Router:
             jaga1.create([Router.tgl, kamar])
 
     def pengurus(self):
+        os.system('cls')
         if self.x == 1:
             pengurus1.read()
         elif self.x == 2:
@@ -149,6 +156,7 @@ class Router:
             pengurus1.create([nama, email, password, alamat, no_hp, jabatan])
 
     def absen(self):
+        os.system('cls')
         if self.x == 1:
             absen1.read()
         elif self.x == 2:
@@ -160,6 +168,7 @@ class Router:
             print("Tidak bisa create data")
 
     def kamar(self):
+        os.system('cls')
         if self.x == 1:
             kamar1.read()
         elif self.x == 2:
@@ -174,6 +183,7 @@ class Router:
             kamar1.create([jumlahKasur])
 
     def kitab(self):
+        os.system('cls')
         if self.x == 1:
             kitab1.read()
         elif self.x == 2:
@@ -194,6 +204,7 @@ class Router:
             kitab1.update([judul, pengarang, penulis, thn])
 
     def pengumuman(self):
+        os.system('cls')
         if self.x == 1:
             Pengumuman.read()
         elif self.x == 2:
@@ -207,6 +218,7 @@ class Router:
             Pengumuman.create([isi, idPengurus])
 
     def viewSantri(self):
+        os.system('cls')
         if self.x == 1:
             tanggal = Router.tgl
             inputEmail = input("Masukkan Email Anda: ")
@@ -238,6 +250,7 @@ class Router:
             pengumuman1.read(["rolee"])
 
     def viewUstadz(self):
+        os.system('cls')
         if self.x == 1:
             pass
         elif self.x == 2:

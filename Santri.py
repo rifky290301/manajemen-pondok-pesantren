@@ -45,7 +45,7 @@ class Santri(User):
 
     def bayarSPP(self, nominal, email):
         connection = DBConnect()
-        query = "INSERT INTO transaksi (tgl_pembayaran, nominal, jenis_transaksi, santri_id) VALUES ('now()',%s,'spp', %s)" % (
+        query = "INSERT INTO transaksi (tgl_pembayaran, nominal, jenis_transaksi, santri_id) VALUES ('GATEDATE()',%s,'spp', %s)" % (
             nominal, self.getID())
         connection.execute(query)
         print("===Bayar SPP Berhasil===")

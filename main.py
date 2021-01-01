@@ -3,6 +3,10 @@ from Santri import Santri
 from Pengurus import Pengurus
 from Ustad import Ustad
 
+import os
+
+os.system('cls')
+
 
 def main():
     def MenuLogin():
@@ -93,12 +97,12 @@ def viewPengurus():
             print("Akses data Tidak Ditemukan!!!")
 
     def dataPengurus():
-        print("====AKSES DATA JAGAPOST====")
+        print("====AKSES DATA PENGURUS====")
         fitur = template()
         view1 = Router(fitur)
         if 1 <= fitur <= 4:
-            view1.jagapost()
-            dataJagaPos()
+            view1.pengurus()
+            dataPengurus()
         else:
             print("Akses data tidak ditemukan!!!")
 
@@ -158,24 +162,43 @@ def viewPengurus():
         """)
         inputAkses = int(input("Masukkan Angka Akses Data Pilihan: "))
         if inputAkses == 1:
+            os.system('cls')
             dataTransaksi()
+            os.system('cls')
         elif inputAkses == 2:
+            os.system('cls')
             dataSantri()
+            os.system('cls')
         elif inputAkses == 3:
+            os.system('cls')
             dataUstadz()
+            os.system('cls')
         elif inputAkses == 4:
+            os.system('cls')
             dataJagaPos()
+            os.system('cls')
         elif inputAkses == 5:
+            os.system('cls')
             dataPengurus()
+            os.system('cls')
         elif inputAkses == 6:
+            os.system('cls')
             dataAbsen()
+            os.system('cls')
         elif inputAkses == 7:
+            os.system('cls')
             dataKamar()
+            os.system('cls')
         elif inputAkses == 8:
+            os.system('cls')
             dataKitab()
+            os.system('cls')
         elif inputAkses == 9:
+            os.system('cls')
             dataPengumuan()
+            os.system('cls')
         elif inputAkses == 10:
+            os.system('cls')
             main()
         else:
             print("Akses Data Tidak Ditemukan!!!")
