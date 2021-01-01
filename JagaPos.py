@@ -12,8 +12,3 @@ class JagaPos(Model):
         query = "SELECT * from santri WHERE email= '%s'" % (email)
         result = connection.executeRead(query)
         return str(result[0][8])
-        # print(result[0][8])
-
-
-# jaga = JagaPos()
-# jaga.cariIdKamar('b')

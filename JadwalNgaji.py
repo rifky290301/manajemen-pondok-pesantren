@@ -13,4 +13,3 @@ class JadwalNgaji(Model):
             " WHERE ustad_id= '%s'" % (ustad_id)
         result = connection.executeRead(query)
         print(result)
-        # print(query)

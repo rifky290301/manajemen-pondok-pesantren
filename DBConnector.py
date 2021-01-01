@@ -5,10 +5,10 @@ from mysql.connector import Error
 class DBConnect:
     def __init__(self):
         self.connection = mysql.connector.connect(
-            host="127.0.0.1",
-            database="manajemen-pondok-pesantren",
-            username="root",
-            password=""
+            host="sql12.freemysqlhosting.net",
+            database="sql12384300",
+            username="sql12384300",
+            password="pd1awcb9Pa"
         )
 
     def execute(self, query):

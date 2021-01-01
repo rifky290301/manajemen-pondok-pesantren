@@ -1,4 +1,5 @@
 from model import Model
+from DBConnector import DBConnect
 
 
 class Kitab(Model):

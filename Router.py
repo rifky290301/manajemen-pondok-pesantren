@@ -10,6 +10,18 @@ from AbsenNgaji import AbsenNgaji
 from JadwalNgaji import JadwalNgaji
 import datetime
 
+# instasi variabel global
+transaksi1 = Transaksi()
+pengurus1 = Pengurus()
+# santri1 = Santri("b")
+jaga = JagaPos()
+absen = AbsenNgaji()
+kitab = Kitab()
+jadwalngaji1 = JadwalNgaji()
+pengumuman1 = Pengumuman()
+ustadz1 = Ustad()
+kamar = Kamar()
+
 
 class Router:
     tgl = datetime.date.today().strftime('%Y-%m-%d')
@@ -18,8 +30,6 @@ class Router:
         self.x = x
 
     def transaksi(self):
-        transaksi1 = Transaksi()
-        pengurus1 = Pengurus()
         if self.x == 1:
             transaksi1.read()
         elif self.x == 2:
@@ -46,11 +56,21 @@ class Router:
                                santri_id, pengurus_id, ustad_id])
 
     def santri(self):
-        santri1 = Santri()
+        santri1 = Santri("b")
         if self.x == 1:
             santri1.read()
         elif self.x == 2:
-            santri1.update()
+            idperubahan = int(input("Masukkan id perubahan: "))
+            nama = input("Nama: ")
+            email = input("Email: ")
+            password = input("Password: ")
+            alamat = input("Alamat: ")
+            no_hp = input("Nomer HP: ")
+            perguruan = input("Perguruan TInggi: ")
+            prodi = input("Prodi: ")
+            kamar_id = input("Masukkan id Kamar: ")
+            santri1.update(
+                [nama, email, password, alamat, no_hp, perguruan, prodi, kamar_id], idperubahan)
         elif self.x == 3:
             inptIdSantri = int(input("Masukkan Id Santri: "))
             santri1.delete(inptIdSantri)
@@ -67,7 +87,7 @@ class Router:
                 [nama, email, password, alamat, no_hp, perguruan, prodi, kamar_id])
 
     def ustadz(self):
-        ustadz1 = Ustad()
+
         if self.x == 1:
             ustadz1.read()
         elif self.x == 2:
@@ -101,9 +121,6 @@ class Router:
             inptIdJagapost = int(input("Masukkan Id JagaPost: "))
             jagapost1.delete(inptIdJagapost)
         else:
-            # today = datetime.date.today()
-            # tgl = today.strftime('%d-%m-%Y')
-            # tgl = datetime.date.today().strftime('%d-%m-%Y')
             kamar = input("ID kamar:")
             jagapost1.create([Router.tgl, kamar])
 
@@ -121,53 +138,46 @@ class Router:
             Pengumuman.create([isi, idPengurus])
 
     def viewSantri(self):
-        santri1 = Santri()
-        jaga = JagaPos()
-        absen = AbsenNgaji()
-        kitab = Kitab()
-        ustad = Ustad()
-        jadwal = JadwalNgaji()
-        pengumuman = Pengumuman()
+
         if self.x == 1:
             tanggal = Router.tgl
-            santri1.bayarSPP(tanggal, input("Nominal: "), input('Email: '))
-            print(tanggal)
+            inputEmail = input("Masukkan Email Anda: ")
+            santri1 = Santri(inputEmail)
+            santri1.bayarSPP(input("Nominal Pembayaran: "), inputEmail)
+            # print(tanggal)
         elif self.x == 2:
             jaga.create([Router.tgl, jaga.getID(
-                input("masukkan email: "))])
+                input("Masukkan Email Anda: "))])
         elif self.x == 3:
             idUstad = santri1.getID(input("masukkan email: "))
             idKitab = kitab.getID(input("masukkan judul kitab: "))
             absen.create([Router.tgl, idUstad, idKitab])
         elif self.x == 4:
-            santri1.getPassword(input("masukkan email anda: "))
+            inputEmail = input("Masukkan Email Anda: ")
+            santri1 = Santri(inputEmail)
+            print("Password Anda Adalah:", santri1.getPassword())
         elif self.x == 5:
-            email = input("Masukkan email:")
-            password = input("Massukkan password:")
-            santri1.setPassword(email, password)
+            inputEmail = input("Masukkan Email Anda: ")
+            santri1 = Santri(inputEmail)
+            password = input("Massukkan Password Baru:")
+            print("Password Lama:", santri1.getPassword())
+            santri1.setPassword(password)
+            print("Password Baru:", santri1.getPassword())
         elif self.x == 6:
-            jadwal.read(["rolee"])
+            jadwalngaji1.read(["rolee"])
         elif self.x == 7:
-            pengumuman.read(["rolee"])
+            pengumuman1.read(["rolee"])
 
     def viewUstadz(self):
-        ustadz1 = Ustad()
-        pengumuman1 = Pengumuman()
-        jadwalngaji1 = JadwalNgaji()
+
         if self.x == 1:
             pass
         elif self.x == 2:
-            pengumuman1.read()
+            pengumuman1.read(["ustad"])
         elif self.x == 3:
             idustad = ustadz1.getID(input("Masukkan email: "))
             jadwalngaji1.jadwalDewe(idustad)
         elif self.x == 4:
-            jadwalngaji1.read()
+            jadwalngaji1.read("ustad")
         else:
             exit()
-
-
-# santri1.bayarSPP(Router.tgl, input("nominal: "), input('email: '))
-# jaga = JagaPos()
-# jaga.create([Router.tgl, '1'])
-# print(Router.tgl)
