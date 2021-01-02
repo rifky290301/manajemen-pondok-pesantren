@@ -289,7 +289,7 @@ class Router:
             pengumuman1.read(["ustad"])
         elif self.x == 3:
             idustadz = ustadz1.getID(input("Masukkan Email Anda: "))
-            JadwalNgaji.jadwalDewe(idustadz)
+            jadwalngaji1.jadwalDewe(idustadz)
         elif self.x == 4:
             jadwalngaji1.read("ustad")
         else:

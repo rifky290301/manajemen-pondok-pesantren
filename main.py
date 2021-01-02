@@ -51,7 +51,7 @@ def template():
     """)
     inputAksesFitur = int(input("Masukkan angka Akses Fitur: "))
     return inputAksesFitur
-    if inputAksesFitur == 5:
+    if inputAksesFitur == 6:
         viewPengurus()
 
 
@@ -88,7 +88,7 @@ def viewPengurus():
             print("Akses data Tidak Ditemukan!!!")
 
     def dataJagaPos():
-        print("====AKSES DATA JAGAPOST====")
+        print("====AKSES DATA JAGA POS====")
         fitur = template()
         view1 = Router(fitur)
         if 1 <= fitur <= 5:
