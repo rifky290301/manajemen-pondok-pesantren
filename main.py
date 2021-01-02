@@ -32,6 +32,7 @@ def main():
                 print("Inputan Not Found!!!")
             viewUstadz()
         elif inputSbgUser == 4:
+            print("====Pondok.In Mengucapkan Trimakasih====")
             exit()
         else:
             print("===Akses User tidak ada / Input Salah!!!===")
@@ -148,7 +149,8 @@ def viewPengurus():
             print("Akses data tidak ditemukan!!!")
 
     def MenuPengurus():
-        print(""" =====AKSES DATA=====
+        print("""
+    =====AKSES DATA=====
 
     1. Akses Data Transaksi
     2. Askes Data Santri
@@ -159,7 +161,7 @@ def viewPengurus():
     7. Akses Data Kamar
     8. Akses Data Kitab
     9. Akses Data Pengumuman
-    10. Kembali Ke Login
+    10. Logout
         """)
         inputAkses = int(input("Masukkan Angka Akses Data Pilihan: "))
         if inputAkses == 1:
@@ -218,11 +220,14 @@ def viewSantri():
         5. Ganti Password
         6. Lihat jadwal mengaji
         7. lihat pengumuman
+        8. Logout
         """)
         inputFitur = int(input("Masukkan Angka Akses Data Pilihan: "))
         router = Router(inputFitur)
         if 1 <= inputFitur <= 7:
             router.viewSantri()
+        elif inputFitur == 8:
+            main()
         else:
             print("Akses Data Tidak Ditemukan!!!")
             exit()
@@ -235,13 +240,15 @@ def viewUstadz():
         2. Lihat Pengumuman
         3. Lihat Jadwal Sendiri
         4. Lihat Jadwal Semua
-        5. Kembali ke Login
+        5. Logout
         """)
         inputFitur = int(
             input("Masukkan angka untuk menggunakna fitur yang ada: "))
         router = Router(inputFitur)
-        if 1 <= inputFitur <= 6:
+        if 1 <= inputFitur <= 4:
             router.viewUstadz()
+        elif inputFitur == 5:
+            main()
         else:
             print("Akses Data Tidak Ditemukan!!!")
             exit()

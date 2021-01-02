@@ -37,7 +37,7 @@ class Router:
         if self.x == 1:
             transaksi1.read()
         elif self.x == 2:
-            idperubahan = int(input("Masukkan id Transaksi yang dirubah: "))
+            idperubahan = int(input("Id Transaksi yang dirubah: "))
             tgl_pembayaran = Router.tgl
             nominal = input("Masukkan Nomila: ")
             jenis_transaksi = input("Jenis Transaksi: ")
@@ -51,10 +51,11 @@ class Router:
             transaksi1.delete(inptIdTransaksi)
         elif self.x == 4:
             tgl_pembayaran = Router.tgl
-            nominal = input("Masukkan Nomila: ")
-            jenis_transaksi = input("Jenis Transaksi: ")
+            nominal = input("Masukkan Nomila        : ")
+            jenis_transaksi = input("Jenis Transaksi        : ")
             santri_id = None
-            pengurus_id = str(pengurus1.getID(input("masukkan email: ")))
+            pengurus_id = str(pengurus1.getID(
+                input("Masukkan Email Anda    : ")))
             ustad_id = None
             transaksi1.create([tgl_pembayaran, nominal, jenis_transaksi,
                                santri_id, pengurus_id, ustad_id])
@@ -67,34 +68,34 @@ class Router:
         if self.x == 1:
             santri1.read()
         elif self.x == 2:
-            idperubahan = int(input("Masukkan id perubahan: "))
-            nama = input("Nama: ")
-            email = input("Email: ")
-            password = input("Password: ")
-            alamat = input("Alamat: ")
-            no_hp = input("Nomer HP: ")
-            perguruan = input("Perguruan TInggi: ")
-            prodi = input("Prodi: ")
-            kamar_id = input("Masukkan id Kamar: ")
+            idperubahan = int(input("Masukkan id perubahan  : "))
+            nama = input("Nama                   : ")
+            email = input("Email                  : ")
+            password = input("Password               : ")
+            alamat = input("Alamat                 : ")
+            no_hp = input("Nomer HP               : ")
+            perguruan = input("Perguruan TInggi       : ")
+            prodi = input("Prodi                  : ")
+            kamar_id = input("Masukkan id Kamar      : ")
             santri1.update(
                 [nama, email, password, alamat, no_hp, perguruan, prodi, kamar_id], idperubahan)
         elif self.x == 3:
             inptIdSantri = int(input("Masukkan Id Santri: "))
             santri1.delete(inptIdSantri)
         elif self.x == 4:
-            nama = input("Nama: ")
-            email = input("Email: ")
-            password = input("Password: ")
-            alamat = input("Alamat: ")
-            no_hp = input("Nomer HP: ")
-            perguruan = input("Perguruan TInggi: ")
-            prodi = input("Prodi: ")
+            nama = input("Nama             : ")
+            email = input("Email            : ")
+            password = input("Password         : ")
+            alamat = input("Alamat           : ")
+            no_hp = input("Nomer HP         : ")
+            perguruan = input("Perguruan TInggi : ")
+            prodi = input("Prodi            : ")
             kamar_id = input("Masukkan id Kamar: ")
             santri1.create(
                 [nama, email, password, alamat, no_hp, perguruan, prodi, kamar_id])
         else:
             inputt = input(
-                "Masukkan nama atau email atau alamat atau nomer hp: ")
+                "Masukkan Nama atau Email atau Alamat atau Nomer HP: ")
             santri1.search(inputt)
 
     def ustadz(self):
@@ -103,25 +104,25 @@ class Router:
             ustadz1.read()
         elif self.x == 2:
             idperubahan = int(input("Masukkan id Ustadz yang dirubah: "))
-            nama = input("Nama: ")
-            email = input("Email: ")
-            password = input("Password: ")
-            alamat = input("Alamat: ")
-            no_hp = input("Nomer HP: ")
+            nama = input("Nama                               : ")
+            email = input("Email                              : ")
+            password = input("Password                           : ")
+            alamat = input("Alamat                             : ")
+            no_hp = input("Nomer HP                           : ")
             ustadz1.update([nama, email, password, alamat, no_hp], idperubahan)
         elif self.x == 3:
             inptIdUstadz = int(input("Masukkan Id Ustadz: "))
             ustadz1.delete(inptIdUstadz)
         elif self.x == 4:
-            nama = input("Nama: ")
-            email = input("Email: ")
-            password = input("Password: ")
-            alamat = input("Alamat: ")
-            no_hp = input("Nomer HP: ")
+            nama = input("Nama      : ")
+            email = input("Email     : ")
+            password = input("Password  : ")
+            alamat = input("Alamat    : ")
+            no_hp = input("Nomer HP  : ")
             ustadz1.create([nama, email, password, alamat, no_hp])
         else:
             inputt = input(
-                "Masukkan nama atau email atau alamat atau nomer hp")
+                "Masukkan Nama atau Email atau Alamat atau Nomer HP: ")
             ustadz1.search(inputt)
 
     def jagapost(self):
@@ -130,13 +131,13 @@ class Router:
             jaga1.read()
         elif self.x == 2:
             idperubahan = int(input("Masukkan id JagaPost yang dirubah: "))
-            kamar = input("ID kamar:")
+            kamar = input("ID kamar                         :")
             jaga1.update([Router.tgl, kamar], idperubahan)
         elif self.x == 3:
             inptIdJagapost = int(input("Masukkan Id JagaPost: "))
             jaga1.delete(inptIdJagapost)
         elif self.x == 4:
-            kamar = input("ID kamar:")
+            kamar = input("ID kamar: ")
             jaga1.create([Router.tgl, kamar])
         else:
             print("Pencarian data tidak bisa")
@@ -147,28 +148,28 @@ class Router:
             pengurus1.read()
         elif self.x == 2:
             idperubahan = int(input("Masukkan id JagaPost yang dirubah: "))
-            nama = input("Nama: ")
-            email = input("Email: ")
-            password = input("Password: ")
-            alamat = input("Alamat: ")
-            no_hp = input("Nomer HP: ")
-            jabatan = input("Jabatan")
+            nama = input("Nama                             : ")
+            email = input("Email                            : ")
+            password = input("Password                         : ")
+            alamat = input("Alamat                           : ")
+            no_hp = input("Nomer HP                         : ")
+            jabatan = input("Jabatan                          : ")
             pengurus1.update([nama, email, password, alamat,
                               no_hp, jabatan], idperubahan)
         elif self.x == 3:
             idPengurus = int(input("Masukkan Id Pengurus: "))
             pengurus1.delete(idPengurus)
         elif self.x == 4:
-            nama = input("Nama: ")
-            email = input("Email: ")
-            password = input("Password: ")
-            alamat = input("Alamat: ")
-            no_hp = input("Nomer HP: ")
-            jabatan = input("Jabatan")
+            nama = input("Nama         : ")
+            email = input("Email        : ")
+            password = input("Password     : ")
+            alamat = input("Alamat       : ")
+            no_hp = input("Nomer HP     : ")
+            jabatan = input("Jabatan       :")
             pengurus1.create([nama, email, password, alamat, no_hp, jabatan])
         else:
             inputt = input(
-                "Masukkan nama atau email atau alamat atau nomer hp")
+                "Masukkan Nama atau Email atau Alamat atau Nomer HP: ")
             pengurus1.search(inputt)
 
     def absen(self):
@@ -190,14 +191,14 @@ class Router:
         if self.x == 1:
             kamar1.read()
         elif self.x == 2:
-            idPerubahan = int(input("Masukkan id kamar yang akan diubah"))
-            jumlahKasur = int(input("Masukkan jumlah kasur"))
+            idPerubahan = int(input("Masukkan id kamar yang akan diubah: "))
+            jumlahKasur = int(input("Masukkan jumlah kasur             :"))
             kamar1.update([jumlahKasur], idPerubahan)
         elif self.x == 3:
             idKamar = int(input("Masukkan Id Kamar: "))
             kamar1.delete(idKamar)
         elif self.x == 4:
-            jumlahKasur = int(input("Masukkan jumlah kasur"))
+            jumlahKasur = int(input("Masukkan jumlah kasur: "))
             kamar1.create([jumlahKasur])
         else:
             print("Pencarian data tidak bisa")
@@ -207,39 +208,39 @@ class Router:
         if self.x == 1:
             kitab1.read()
         elif self.x == 2:
-            idPerubahan = int(input("Masukkan id kitab yang akan diubah"))
-            judul = input("Judul kitab:")
-            pengarang = input("Pengarang kitab:")
-            penulis = input("Penulis:")
-            thn = input("Tahun terbit:")
+            idPerubahan = int(input("Masukkan id kitab yang akan diubah: "))
+            judul = input("Judul kitab                        :")
+            pengarang = input("Pengarang kitab                    :")
+            penulis = input("Penulis                            :")
+            thn = input("Tahun terbit                       :")
             kitab1.update([judul, pengarang, penulis, thn], idPerubahan)
         elif self.x == 3:
             idKitab = int(input("Masukkan Id Kitab: "))
             kitab1.delete(idKitab)
         elif self.x == 4:
-            judul = input("Judul kitab:")
-            pengarang = input("Pengarang kitab:")
-            penulis = input("Penulis:")
-            thn = input("Tahun terbit:")
+            judul = input("Judul kitab      :")
+            pengarang = input("Pengarang kitab  :")
+            penulis = input("Penulis          :")
+            thn = input("Tahun terbit     :")
             kitab1.update([judul, pengarang, penulis, thn])
         else:
             inputt = input(
-                "Masukkan judul atau pengarang atau alamat atau penulis")
+                "Masukkan Judul atau Pengarang atau Alamat atau Penulis: ")
             kitab1.search(inputt)
 
     def pengumuman(self):
         os.system('cls')
         if self.x == 1:
-            Pengumuman.read()
+            pengumuman1.read()
         elif self.x == 2:
-            Pengumuman.update()
+            pengumuman1.update()
         elif self.x == 3:
             inptIdJagapost = int(input("Masukkan Id JagaPost: "))
-            Pengumuman.delete(inptIdJagapost)
+            pengumuman1.delete(inptIdJagapost)
         elif self.x == 4:
-            isi = input("isi pengumuman")
-            idPengurus = input("id pengurus")
-            Pengumuman.create([isi, idPengurus])
+            isi = input("Masukkan Isi Pengumuman : ")
+            idPengurus = input("Masukkan Pengurus Id    : ")
+            pengumuman1.create([isi, idPengurus])
         else:
             print("Pencarian data tidak bisa")
 
@@ -247,9 +248,9 @@ class Router:
         os.system('cls')
         if self.x == 1:
             tanggal = Router.tgl
-            inputEmail = input("Masukkan Email Anda: ")
+            inputEmail = input("Masukkan Email Anda : ")
             santri1 = Santri(inputEmail)
-            santri1.bayarSPP(input("Nominal Pembayaran: "), inputEmail)
+            santri1.bayarSPP(input("Nominal Pembayaran  : "), inputEmail)
             santri1(inputEmail)
         elif self.x == 2:
             inputEmail = (input("Masukkan Email Anda: "))
@@ -259,21 +260,21 @@ class Router:
             inputEmail = input("Masukkan Email Anda: ")
             santri1 = Santri(inputEmail)
             idSantri = santri1.getID()
-            idKitab = kitab1.getID(input("masukkan judul kitab: "))
-            idUstad = ustadz1.getID(input("masukkan email ustad"))
+            idKitab = kitab1.getID(input("Masukkan Judul Kitab : "))
+            idUstad = ustadz1.getID(input("Masukkan Email Ustad :"))
             absen1.create([Router.tgl, str(idSantri),
                            str(idUstad), str(idKitab)])
         elif self.x == 4:
-            inputEmail = input("Masukkan Email Anda: ")
+            inputEmail = input("Masukkan Email Anda     : ")
             santri1 = Santri(inputEmail)
-            print("Password Anda Adalah:", santri1.getPassword())
+            print("Password Anda Adalah    : ", santri1.getPassword())
         elif self.x == 5:
-            inputEmail = input("Masukkan Email Anda: ")
+            inputEmail = input("Masukkan Email Anda     : ")
             santri1 = Santri(inputEmail)
-            password = input("Massukkan Password Baru:")
-            print("Password Lama:", santri1.getPassword())
+            password = input("Massukkan Password Baru : ")
+            print("Password Lama           : ", santri1.getPassword())
             santri1.setPassword(password)
-            print("Password Baru:", santri1.getPassword())
+            print("Password Baru           : ", santri1.getPassword())
         elif self.x == 6:
             jadwalngaji1.read(["rolee"])
         elif self.x == 7:
@@ -282,8 +283,8 @@ class Router:
     def viewUstadz(self):
         os.system('cls')
         if self.x == 1:
-            ustad = ustadz1.getID(input("Masukkan mail :"))
-            kitab = kitab1.getID(input("Nama kitab:"))
+            ustad = ustadz1.getID(input("Masukkan Email : "))
+            kitab = kitab1.getID(input("Nama Kitab     : "))
             absen1.absenUstad(ustad, kitab)
         elif self.x == 2:
             pengumuman1.read(["ustad"])
@@ -292,5 +293,3 @@ class Router:
             jadwalngaji1.jadwalDewe(idustadz)
         elif self.x == 4:
             jadwalngaji1.read("ustad")
-        else:
-            exit()
