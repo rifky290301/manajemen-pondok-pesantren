@@ -16,7 +16,10 @@ class Model:
         query = query[:-1]
         query += ") VALUES ("
         for value in values:
-            query += "'"+value+"',"
+            if value == None:
+                query += "NULL,"
+            else:
+                query += "'"+value+"',"
         query = query[:-1]
         query += ")"
         # print(query)
@@ -71,7 +74,18 @@ class Model:
         query = query[:-3]
         # print(query)
         result = connection.executeRead(query)
-        print(result)
+        p = PrettyTable()
+        x = []
+        x.append('id')
+        for column in self.column:
+            x.append(column)
+        p.field_names = x
+        for row in result:
+            listRow = list(row)
+            listRow.pop(len(listRow)-1)
+            listRow.pop(len(listRow)-1)
+            p.add_row(listRow)
+        print(p)
 
     def order(self, table, col, urutan):
         if urutan == 1:

@@ -24,7 +24,7 @@ def main():
                 print("Inputan Not Found!!!")
             viewPengurus()
         elif inputSbgUser == 2:
-            while(Santri("b").login(input("\tEmail    : "), input("\tPassword : "))):
+            while(Santri().login(input("\tEmail    : "), input("\tPassword : "))):
                 print("Inputan Not Found!!!")
             viewSantri()
         elif inputSbgUser == 3:
@@ -46,11 +46,12 @@ def template():
         2. Updata Data
         3. Hapus Data
         4. Tambah Data
-        5. Kembali Akses Data
+        5. Cari Data
+        6. Kembali Akses Data
     """)
     inputAksesFitur = int(input("Masukkan angka Akses Fitur: "))
     return inputAksesFitur
-    if inputAksesFitur == 5:
+    if inputAksesFitur == 6:
         viewPengurus()
 
 
@@ -60,7 +61,7 @@ def viewPengurus():
         print("""====AKSES DATA TRANSAKSI====""")
         fitur = template()
         view1 = Router(fitur)
-        if 1 <= fitur <= 4:
+        if 1 <= fitur <= 5:
             view1.transaksi()
             dataTransaksi()
         else:
@@ -70,7 +71,7 @@ def viewPengurus():
         print("====AKSES DATA SANTRI====")
         fitur = template()
         view1 = Router(fitur)
-        if 1 <= fitur <= 4:
+        if 1 <= fitur <= 5:
             view1.santri()
             dataSantri()
         else:
@@ -80,17 +81,17 @@ def viewPengurus():
         print("====AKSES DATA USTADZ====")
         fitur = template()
         view1 = Router(fitur)
-        if 1 <= fitur <= 4:
+        if 1 <= fitur <= 5:
             view1.ustadz()
             dataUstadz()
         else:
             print("Akses data Tidak Ditemukan!!!")
 
     def dataJagaPos():
-        print("====AKSES DATA JAGAPOST====")
+        print("====AKSES DATA JAGA POS====")
         fitur = template()
         view1 = Router(fitur)
-        if 1 <= fitur <= 4:
+        if 1 <= fitur <= 5:
             view1.jagapost()
             dataJagaPos()
         else:
@@ -100,7 +101,7 @@ def viewPengurus():
         print("====AKSES DATA PENGURUS====")
         fitur = template()
         view1 = Router(fitur)
-        if 1 <= fitur <= 4:
+        if 1 <= fitur <= 5:
             view1.pengurus()
             dataPengurus()
         else:
@@ -110,7 +111,7 @@ def viewPengurus():
         print("====AKSES DATA ABSEN====")
         fitur = template()
         view1 = Router(fitur)
-        if 1 <= fitur <= 4:
+        if 1 <= fitur <= 5:
             view1.absen()
             dataAbsen()
         else:
@@ -120,7 +121,7 @@ def viewPengurus():
         print("====AKSES DATA ABSEN====")
         fitur = template()
         view1 = Router(fitur)
-        if 1 <= fitur <= 4:
+        if 1 <= fitur <= 5:
             view1.kamar()
             dataKamar()
         else:
@@ -130,7 +131,7 @@ def viewPengurus():
         print("====AKSES DATA ABSEN====")
         fitur = template()
         view1 = Router(fitur)
-        if 1 <= fitur <= 4:
+        if 1 <= fitur <= 5:
             view1.kitab()
             dataKitab()
         else:
@@ -140,7 +141,7 @@ def viewPengurus():
         print("====AKSES DATA ABSEN====")
         fitur = template()
         view1 = Router(fitur)
-        if 1 <= fitur <= 4:
+        if 1 <= fitur <= 5:
             view1.pengumuman()
             dataPengumuan()
         else:

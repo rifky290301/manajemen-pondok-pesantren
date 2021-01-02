@@ -13,10 +13,12 @@ class JagaPos(Model):
         query = "SELECT * from santri WHERE email= '%s'" % (email)
         result = connection.executeRead(query)
         print("Kamar dengan ID", str(
-            result[0][8]), "Telah Melakukan Absen JagaPost")
+            result[0][8]), "Telah Melakukan Absen Jaga Pos")
 
-    def getID(self, email):
+    @classmethod
+    def getID(cls, email):
         connection = DBConnect()
         query = "SELECT * from santri WHERE email= '%s'" % (email)
         result = connection.executeRead(query)
+        # print(result)
         return str(result[0][8])
