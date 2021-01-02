@@ -53,7 +53,10 @@ class Model:
         query = """UPDATE """+self.table+" SET "
         for i in range(len(self.column)):
             query += self.column[i]+"="
-            query += "'"+values[i]+"',"
+            if values[i] == None:
+                query += "NULL,"
+            else:
+                query += "'"+values[i]+"',"
         query = query[:-1]
         query += " WHERE id ='%d'" % (idInput)
         # print(query)

@@ -41,9 +41,9 @@ class Router:
             tgl_pembayaran = Router.tgl
             nominal = input("Masukkan Nomila: ")
             jenis_transaksi = input("Jenis Transaksi: ")
-            santri_id = ("null")
+            santri_id = None
             pengurus_id = str(pengurus1.getID(input("masukkan email: ")))
-            ustad_id = ("null")
+            ustad_id = None
             transaksi1.update([tgl_pembayaran, nominal, jenis_transaksi,
                                santri_id, pengurus_id, ustad_id], idperubahan)
         elif self.x == 3:
