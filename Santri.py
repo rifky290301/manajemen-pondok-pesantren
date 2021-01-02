@@ -1,9 +1,11 @@
 from model import Model
 from User import User
 from DBConnector import DBConnect
+import datetime
 
 
 class Santri(User):
+    tgl = datetime.date.today().strftime('%Y-%m-%d')
 
     def __init__(self, inputEmail=None):
         super().__init__("santri", [
@@ -33,7 +35,7 @@ class Santri(User):
         connection = DBConnect()
         query = "UPDATE "+self.table + \
             " SET password= '%s' WHERE email = '%s'" % (
-                self.__password, self.email)
+                self.__password, self.__email)
         connection.execute(query)
         print("===Password Berhasil Dirubah===")
 
@@ -46,8 +48,8 @@ class Santri(User):
 
     def bayarSPP(self, nominal, email):
         connection = DBConnect()
-        query = "INSERT INTO transaksi (tgl_pembayaran, nominal, jenis_transaksi, santri_id) VALUES ('now()',%s,'spp', %s)" % (
-            nominal, self.getID())
+        query = "INSERT INTO transaksi (tgl_pembayaran, nominal, jenis_transaksi, santri_id) VALUES ('%s',%s,'spp', %s)" % (
+            Santri.tgl, nominal, self.getID())
         connection.execute(query)
         print("===Bayar SPP Berhasil===")
 
